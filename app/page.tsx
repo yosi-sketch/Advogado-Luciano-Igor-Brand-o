@@ -12,6 +12,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   Award,
+  BadgePercent,
   Briefcase,
   Building2,
   CheckCircle2,
@@ -19,6 +20,7 @@ import {
   FileCheck,
   FileText,
   HeartHandshake,
+  Landmark,
   Mail,
   MapPin,
   Menu,
@@ -32,17 +34,20 @@ import {
 } from "lucide-react";
 import GlowingButton from "./components/GlowingButton";
 
-// Informações Oficiais de Contato & Redes Sociais
-const WHATSAPP_NUMBER = "5531971347399";
-const PHONE_DISPLAY = "(31) 97134-7399";
-const EMAIL_CONTACT = "contato@julianacota.adv.br";
-const INSTAGRAM_URL = "https://www.instagram.com/julianacota.adv/";
+// Informações Oficiais de Contato & Redes Sociais — Advogado Luciano Igor Brandão
+const WHATSAPP_NUMBER = "5531989287260";
+const PHONE_DISPLAY = "(31) 98928-7260";
+const EMAIL_CONTACT = "contato@lucianoigorbrandao.adv.br";
+const FACEBOOK_URL = "https://www.facebook.com/adv.luciano.igor.brandao/";
 const GOOGLE_MAPS_URL =
-  "https://maps.google.com/?q=Av.+Get%C3%BAlio+Vargas,+5368+-+Sl+02/03+-+Carneirinhos,+Jo%C3%A3o+Monlevade+-+MG,+35930-003";
+  "https://maps.google.com/?q=R.+Fern%C3%A3o+Dias,+303+-+Sl+303+B+-+Carneirinhos,+Jo%C3%A3o+Monlevade+-+MG,+35930-180";
+const OAB_DISPLAY = "OAB/MG 212.247";
+const ADDRESS_STREET = "R. Fernão Dias, 303 - Sl 303 B - Carneirinhos";
+const ADDRESS_CITY = "João Monlevade - MG, CEP 35930-180, Brasil";
 
 function getWhatsAppUrl(message?: string) {
   const defaultText =
-    "Olá, Dra. Juliana Cota. Gostaria de solicitar uma consulta jurídica e avaliação do meu caso no escritório Juliana Cota Consultoria Jurídica & Advocacia.";
+    "Olá, Dr. Luciano Igor Brandão. Gostaria de solicitar uma consulta jurídica e avaliação do meu caso no escritório.";
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     message || defaultText
   )}`;
@@ -69,7 +74,7 @@ function WhatsAppIcon({
   );
 }
 
-function InstagramIcon({
+function FacebookIcon({
   size = 17,
   className = "",
 }: {
@@ -82,16 +87,10 @@ function InstagramIcon({
       width={size}
       height={size}
       viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fill="currentColor"
       className={className}
     >
-      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
     </svg>
   );
 }
@@ -123,224 +122,226 @@ interface PracticeArea {
 
 const practiceAreas: PracticeArea[] = [
   {
-    id: "direito-do-trabalho",
-    title: "Direito do Trabalho & Defesa do Trabalhador",
-    icon: Briefcase,
-    tag: "CLT · Rescisão Indireta · Verbas",
+    id: "direito-bancario",
+    title: "Direito Bancário & Defesa Contra Abusos",
+    icon: Landmark,
+    tag: "Juros Abusivos · Fraudes · Consignados · Dívidas",
     summary:
-      "Defesa incisiva dos direitos dos trabalhadores: rescisão indireta, reversão de justa causa abusiva, horas extras, adicionais e acidentes de trabalho.",
+      "Atuação incisiva na revisão de contratos de empréstimos e financiamentos, anulação de fraudes no consignado, cancelamento de juros abusivos e proteção do seu patrimônio.",
     details:
-      "O trabalhador não deve suportar ilegalidades, atrasos reiterados ou condições degradantes. A legislação trabalhista brasileira (CLT) garante instrumentos protetivos fundamentais. Quando a empresa descumpre o contrato, atuamos com rigor técnico para buscar a rescisão indireta (a 'demissão da empresa pelo empregado') com recebimento de todas as verbas rescisórias, FGTS com 40%, liberação de guias do seguro-desemprego e indenizações cabíveis.",
+      "Instituições bancárias e financeiras frequentemente praticam taxas desproporcionais, realizam vendas casadas ou viabilizam fraudes que atingem aposentados, pensionistas e correntistas. Atuamos com perícia contratual e combatividade judicial para suspender cobranças indevidas, anular contratos fraudulentos (como RMC e RCC), reaver quantias pagas em dobro e blindar o seu patrimônio contra execuções desleais.",
     topics: [
-      "Rescisão Indireta: quando a empresa atrasa salários, recolhimento de FGTS ou comete falta grave",
-      "Reversão de Demissão por Justa Causa indevida ou desproporcional com liberação total de benefícios",
-      "Cobrança de horas extras, intervalos de almoço suprimidos e adicional noturno",
-      "Adicionais de Insalubridade e Periculosidade para ambientes nocivos ou perigosos",
-      "Indenizações por Acidente de Trabalho e Doenças Ocupacionais (LER/DORT, burnout, sequelas)",
-      "Reconhecimento de vínculo empregatício de trabalhadores sem carteira assinada",
+      "Ação Revisional de Contratos de Financiamento de Veículos e Empréstimos Bancários",
+      "Anulação e ressarcimento de Fraudes em Empréstimo Consignado e Golpes do Benefício INSS",
+      "Cancelamento de descontos ilegais de Cartão de Crédito Consignado (RMC e RCC)",
+      "Defesa e embargos em Ações de Busca e Apreensão e Execuções de Título Extrajudicial",
+      "Renegociação estratégica de dívidas bancárias e redução drástica do saldo devedor",
+      "Indenização por Danos Morais decorrentes de negativação indevida ou descontos abusivos",
     ],
     whatsAppText:
-      "Olá, Dra. Juliana Cota. Gostaria de solicitar uma análise trabalhista do meu caso (rescisão, direitos ou demissão).",
-  },
-  {
-    id: "consultoria-empresarial",
-    title: "Consultoria Trabalhista & Compliance Empresarial",
-    icon: Building2,
-    tag: "Prevenção · Contratos · Blindagem",
-    summary:
-      "Assessoria jurídica preventiva e estratégica para empresas, gestores e departamentos de RH: redução drástica de passivos e defesa sólida na Justiça do Trabalho.",
-    details:
-      "Passivos trabalhistas ocultos podem comprometer a rentabilidade e o patrimônio de um negócio. Nossa consultoria empresarial atua lado a lado com a diretoria para auditar rotinas de contratação, jornada, cargos e salários, adequando a operação às normas da CLT e da jurisprudência consolidada, além de apresentar defesas de alto nível técnico em reclamações trabalhistas.",
-    topics: [
-      "Auditoria jurídica preventiva de rotinas de departamento pessoal e RH",
-      "Elaboração e revisão de contratos de trabalho, termos de sigilo (NDA) e acordos de compensação",
-      "Assessoria em contratação e gestão de prestadores de serviços autônomos e pessoas jurídicas (PJ)",
-      "Defesa estratégica em Reclamatórias Trabalhistas e procedimentos do Ministério Público do Trabalho",
-      "Orientação em demissões complexas e aplicação fundamentada de penalidades disciplinares",
-      "Negociações coletivas sindicais e mediação de acordos extrajudiciais seguros",
-    ],
-    whatsAppText:
-      "Olá, Dra. Juliana Cota. Gostaria de conhecer os serviços de consultoria jurídica trabalhista preventiva para minha empresa.",
+      "Olá, Dr. Luciano Igor Brandão. Gostaria de solicitar uma análise técnica do meu contrato bancário ou desconto indevido.",
   },
   {
     id: "direito-civil-contratos",
     title: "Direito Civil & Contratos Estratégicos",
     icon: FileCheck,
-    tag: "Contratos · Indenizações · Cobranças",
+    tag: "Contratos · Indenizações · Cobranças · Danos Morais",
     summary:
-      "Elaboração e revisão minuciosa de contratos, reparação de danos materiais e morais, cobranças judiciais e extrajudiciais e resolução segura de disputas civis.",
+      "Elaboração e revisão minuciosa de contratos, reparação de danos morais e materiais, cobranças judiciais e extrajudiciais eficazes e resolução segura de disputas civis.",
     details:
-      "A segurança patrimonial e a tranquilidade nas relações cotidianas dependem de instrumentos contratuais claros e juridicamente blindados. Conduzimos ações indenizatórias por descumprimento de deveres, cobranças eficazes de créditos vencidos e negociações extrajudiciais com foco na máxima proteção dos interesses de nossos clientes.",
+      "A segurança das suas relações e a preservação do seu patrimônio dependem de instrumentos jurídicos claros e sólidos. Conduzimos ações indenizatórias por descumprimento de deveres, cobranças rigorosas de créditos vencidos e negociações extrajudiciais com foco na máxima proteção dos seus direitos.",
     topics: [
-      "Elaboração, análise e revisão de instrumentos contratuais civis e comerciais sob medida",
+      "Elaboração, análise e revisão de instrumentos contratuais civis e comerciais",
       "Ações de Indenização por Danos Morais, Danos Materiais e Lucros Cessantes",
-      "Cobrança judicial e extrajudicial de títulos de crédito, duplicatas, notas promissórias e contratos",
-      "Rescisão contratual motivada e aplicação judicial de multas e cláusulas penais",
+      "Cobrança judicial e extrajudicial de títulos de crédito, notas promissórias e contratos",
+      "Rescisão contratual motivada e aplicação de cláusulas penais e multas",
       "Notificações extrajudiciais estruturadas para resolução célere sem necessidade de litígio",
-      "Defesa e propositura de ações possessórias, despejos e litígios imobiliários",
+      "Defesa e propositura de ações possessórias e litígios imobiliários",
     ],
     whatsAppText:
-      "Olá, Dra. Juliana Cota. Preciso de auxílio jurídico em Direito Civil (contratos, cobrança ou indenização).",
+      "Olá, Dr. Luciano Igor Brandão. Preciso de auxílio jurídico em Direito Civil (contratos, cobrança ou indenização).",
+  },
+  {
+    id: "direito-do-consumidor",
+    title: "Direito do Consumidor & Defesa de Direitos",
+    icon: Scale,
+    tag: "Nome Limpo · Cobranças Indevidas · Danos Morais",
+    summary:
+      "Defesa vigorosa contra negativações indevidas no SPC/Serasa, abusos de prestadoras de serviços, fraudes digitais e cobranças vexatórias com pedido de indenização.",
+    details:
+      "O consumidor não deve tolerar práticas lesivas ou pagar por falhas operacionais de terceiros. Atuamos com medidas liminares de urgência para restabelecer a regularidade do seu nome, cancelar serviços fraudulentos e buscar a devida compensação indenizatória por danos sofridos.",
+    topics: [
+      "Ações liminares urgentes para exclusão de nome no SPC, Serasa e cartórios de protesto",
+      "Indenização por Danos Morais por negativação indevida e abalo de crédito",
+      "Combate a fraudes digitais, transações não autorizadas e golpes via PIX",
+      "Cancelamento de assinaturas e tarifas não solicitadas com repetição de indébito",
+      "Defesa contra falhas graves na prestação de serviços de telefonia, companhias aéreas e energia",
+      "Atuação contenciosa e mediação de acordos perante o Procon e Juizados Especiais",
+    ],
+    whatsAppText:
+      "Olá, Dr. Luciano Igor Brandão. Gostaria de orientação sobre uma situação de desrespeito ao Direito do Consumidor ou negativação indevida.",
   },
   {
     id: "direito-familia-sucessoes",
     title: "Direito de Família & Sucessões",
     icon: Users,
-    tag: "Divórcio · Pensão · Inventários",
+    tag: "Divórcio · Pensão · Guarda · Inventários",
     summary:
-      "Atendimento sensível, acolhedor e estratégico em divórcios judiciais e extrajudiciais, pensão alimentícia, guarda de filhos, partilha de bens e inventários.",
+      "Atendimento sensível, ético e estratégico em divórcios judiciais e extrajudiciais em cartório, pensão alimentícia, partilha de patrimônio e inventários.",
     details:
-      "Questões familiares demandam respeito, escuta qualificada e postura firme para preservar os direitos e a dignidade das pessoas envolvidas. Buscamos sempre que possível a via do consenso inteligente e ágil (inclusive em cartório), atuando com vigor técnico nos casos contenciosos para garantir a justa partilha e o bem-estar dos filhos.",
+      "Conduzimos assuntos de família com o máximo respeito, sigilo e postura firme para salvaguardar os seus interesses e o bem-estar dos seus entes queridos. Priorizamos sempre a via consensual ágil e representamos você com vigor nos casos de litígio.",
     topics: [
-      "Divórcio consensual e litigioso com partilha estratégica de patrimônio do casal",
-      "Divórcio extrajudicial rápido em cartório de notas sem burocracia desnecessária",
-      "Ações de Pensão Alimentícia: fixação inicial, pedido de revisão (redução ou aumento) e execução",
-      "Regulamentação de guarda (compartilhada ou unilateral) e convivência paterno/materno-filial",
-      "Inventário judicial e extrajudicial em cartório, arrolamento de bens e planejamento sucessório",
+      "Divórcio consensual e litigioso com partilha estratégica de patrimônio",
+      "Divórcio extrajudicial rápido em cartório de notas, sem burocracia",
+      "Ações de Pensão Alimentícia: fixação, exoneração, revisão e execução de débitos",
+      "Regulamentação de guarda (compartilhada ou unilateral) e plano de convivência",
+      "Inventário judicial e extrajudicial em cartório, partilha de herança e arrolamento",
       "Reconhecimento e dissolução de união estável com proteção dos direitos patrimoniais",
     ],
     whatsAppText:
-      "Olá, Dra. Juliana Cota. Gostaria de orientações jurídicas sobre Direito de Família (divórcio, pensão ou inventário).",
+      "Olá, Dr. Luciano Igor Brandão. Gostaria de orientações jurídicas sobre Direito de Família (divórcio, pensão ou inventário).",
   },
   {
-    id: "direito-previdenciario",
-    title: "Direito Previdenciário & Benefícios do INSS",
-    icon: Award,
-    tag: "Aposentadorias · BPC/LOAS · Auxílios",
+    id: "direito-do-trabalho",
+    title: "Direito do Trabalho & Defesa dos Direitos",
+    icon: Briefcase,
+    tag: "Rescisão Indireta · Verbas · Acidentes · Empresas",
     summary:
-      "Concessão ágil de aposentadorias urbanas e rurais, BPC/LOAS para idosos e PCD, auxílio-doença, pensão por morte e reversão de indeferimentos do INSS.",
+      "Defesa incisiva de trabalhadores em rescisão indireta, reversão de justa causa abusiva, horas extras e assessoria preventiva para conformidade empresarial.",
     details:
-      "Anos de trabalho e contribuição merecem ser respeitados. Diante das frequentes negativas infundadas e da complexidade das regras de transição do INSS, realizamos o diagnóstico detalhado do seu histórico contributivo (CNIS) e ingressamos com medidas administrativas e ações perante a Justiça Federal para assegurar o melhor benefício possível.",
+      "Acompanhamento especializado em causas trabalhistas, garantindo que os direitos garantidos pela CLT e pela jurisprudência sejam integralmente cumpridos. Atuação combativa para trabalhadores e consultoria de compliance para empregadores.",
     topics: [
-      "Concessão de Aposentadoria por Idade Urbana e Rural, Tempo de Contribuição e Especial",
-      "Benefício de Prestação Continuada (BPC/LOAS) para idosos com 65+ anos e pessoas com deficiência",
-      "Auxílio por Incapacidade Temporária (auxílio-doença) e Aposentadoria por Incapacidade Permanente",
-      "Auxílio-Acidente mensal indenizatório cumulativo com o salário",
-      "Pensão por morte para dependentes com comprovação segura de união estável",
-      "Planejamento Previdenciário e cálculo da regra mais vantajosa para maximizar o valor mensal",
+      "Rescisão Indireta do Contrato de Trabalho por falta grave do empregador ou atraso salarial",
+      "Reversão de Demissão por Justa Causa indevida com liberação integral de guias e verbas",
+      "Cobrança de horas extras, intervalos suprimidos e adicional noturno",
+      "Adicionais de Insalubridade e Periculosidade para ambientes de risco",
+      "Indenizações por Acidente de Trabalho e Doenças Ocupacionais",
+      "Assessoria jurídica preventiva trabalhista para empresas e gestores",
     ],
     whatsAppText:
-      "Olá, Dra. Juliana Cota. Gostaria de consultar minha situação perante o INSS (aposentadoria ou benefício).",
+      "Olá, Dr. Luciano Igor Brandão. Gostaria de consultar uma situação na área trabalhista.",
   },
   {
     id: "consultoria-estrategica",
-    title: "Consultoria Jurídica & Resolução de Conflitos",
-    icon: Scale,
-    tag: "Pareceres · Conciliação · Tribunais",
+    title: "Consultoria Jurídica Estratégica & Gestão de Conflitos",
+    icon: ShieldCheck,
+    tag: "Pareceres · Prevenção · Negociação · Tribunais",
     summary:
-      "Assessoria consultiva sob medida para tomadas de decisão importantes, pareceres técnicos fundamentados e representação combativa perante tribunais.",
+      "Assessoria consultiva sob medida para tomadas de decisão importantes, pareceres técnicos fundamentados, mediações e representação firme perante tribunais.",
     details:
-      "Cada cliente é único e merece um plano de ação personalizado. Unimos profundo conhecimento técnico, análise detalhada de documentos e facilidade de comunicação para apresentar respostas claras sobre a viabilidade jurídica de cada decisão, mitigando riscos antes que se transformem em litígios.",
+      "Cada demanda é conduzida com dedicação personalizada. Unimos profundo rigor técnico, análise minuciosa de documentos e clareza de comunicação para apresentar respostas precisas sobre a viabilidade jurídica de cada escolha, mitigando riscos antes que se tornem prejuízos.",
     topics: [
       "Emissão de pareceres e opiniões legais para respaldar decisões pessoais e corporativas",
       "Negociação estratégica e condução de mediações pré-processuais com foco em acordos justos",
-      "Acompanhamento processual constante com relatórios periódicos em linguagem simples",
-      "Atuação combativa perante órgãos administrativos, Procon e instâncias judiciais",
-      "Defesa dos direitos do consumidor em contratos abusivos, falhas de serviços e cobranças indevidas",
-      "Atendimento prioritário e contato direto com a titular em todos os estágios da causa",
+      "Acompanhamento processual constante com relatórios periódicos em linguagem acessível",
+      "Atuação combativa perante órgãos administrativos, cartórios e instâncias judiciais",
+      "Diagnóstico preventivo de riscos contratuais e patrimoniais",
+      "Atendimento prioritário e contato direto com o titular em todos os estágios da causa",
     ],
     whatsAppText:
-      "Olá, Dra. Juliana Cota. Gostaria de agendar uma consultoria jurídica estratégica para analisar minha demanda.",
+      "Olá, Dr. Luciano Igor Brandão. Gostaria de agendar uma consultoria jurídica estratégica para analisar minha demanda.",
   },
 ];
 
-// Avaliações Reais de Clientes no Google Meu Negócio (Nota 5,0 estrelas · 97 avaliações)
+// Avaliações Reais de Clientes no Google Meu Negócio (Nota 5,0 estrelas · 51 avaliações)
 const clientReviews = [
   {
-    name: "Flaviano Rafael",
-    reviewsCount: "Local Guide · 12 avaliações · 10 fotos",
-    date: "Há 7 meses",
-    highlight: "Exatamente profissional! Me tratou com profissionalismo e confiança.",
+    name: "Paula Garcia",
+    reviewsCount: "15 avaliações · 1 foto",
+    date: "Avaliação no Google",
+    highlight:
+      "Se você está procurando alguém que vai levar sua causa a sério, acabou de encontrar.",
     content:
-      "Exatamente profissional! Me tratou com profissionalismo e confiança. Estou muito satisfeito com o trabalho dela e recomendo com toda certeza.",
+      "Se você está procurando alguém que vai levar sua causa a sério, acabou de encontrar. Recomendo o Igor por sua competência e vasto conhecimento, além de ser uma pessoa muito agradável. O ambiente também é nota 1000.",
   },
   {
-    name: "nalva oliveira",
-    reviewsCount: "8 avaliações",
-    date: "Há 1 ano",
-    highlight: "Conhecimento profundo e clareza em cada etapa, super segura!",
-    content:
-      "A Juliana foi extremamente atenciosa e dedicada ao longo de todo o processo. Demonstrou conhecimento profundo e clareza em cada etapa, o que me deixou super segura.",
-  },
-  {
-    name: "Francislaine Cristina",
-    reviewsCount: "4 avaliações",
-    date: "Há 7 meses",
-    highlight: "Competência extraordinária, pontualidade e presteza fora do comum.",
-    content:
-      "Excelente profissional, uma competência extraordinária, pontualidade e presteza fora do comum. Super indico!",
-  },
-  {
-    name: "Larissa Magalhães",
-    reviewsCount: "2 avaliações",
-    date: "Há 2 anos",
-    highlight: "Excelente escritório! Qualificada e com atendimento personalizado.",
-    content:
-      "Excelente escritório de advocacia! A equipe de advogados é extremamente qualificada e especializada em diversas áreas do Direito. Recomendo fortemente para quem busca um serviço jurídico de alta qualidade e com atendimento personalizado.",
-  },
-  {
-    name: "Brener Barony",
-    reviewsCount: "2 avaliações",
-    date: "Há 2 anos",
-    highlight: "Educação, carinho e competência excepcional com seus clientes.",
-    content:
-      "Uma profissional muito comprometida e competente na sua área de trabalho, não tenho palavras pra descrever sua educação e carinho com seus clientes, por isso super indico a Dra. Juliana como advogada, vocês não têm noção da grande profissional!",
-  },
-  {
-    name: "Cidinha Xavier",
-    reviewsCount: "2 avaliações",
-    date: "Há 2 meses",
-    highlight: "Mulher de pulso firme, zelo, ética e decidida no que faz!",
-    content:
-      "Excelente profissional, exerce seu trabalho com zelo, ética. Mulher de pulso firme, decidida no que faz! Parabéns pelo seu profissionalismo 👏👏👏",
-  },
-  {
-    name: "Sara Cunha",
-    reviewsCount: "1 avaliação",
-    date: "Há 1 ano",
-    highlight: "Bem explicativa sobre o que pode ser feito e com retorno rápido.",
-    content:
-      "Ótima profissional, responsável bem explicativa nos casos do que pode ser feito e o que pode ocorrer, retorno rápido.",
-  },
-  {
-    name: "Allex Souza",
-    reviewsCount: "2 avaliações",
-    date: "Há 1 ano",
-    highlight: "Excelência em ganhos, responsabilidade e parceria que gera credibilidade.",
-    content:
-      "Sem dúvidas uma grande profissional, excelência em ganhos. Responsabilidade grande aos clientes. Tendo total parceria e criando credibilidade e confiança a quem procura. Super recomendo trabalho excepcional tá de Parabéns!",
-  },
-  {
-    name: "antonio fraga",
-    reviewsCount: "1 avaliação",
-    date: "Há 1 ano",
-    highlight: "Comunica-se bem e resolve os problemas com máxima eficiência.",
-    content:
-      "Juliana é eficiente, comunica-se bem e resolve os problemas com eficiência. Recomendo fortemente seu trabalho.",
-  },
-  {
-    name: "Wallisson Magalhães Martins",
+    name: "Renan Nunes",
     reviewsCount: "3 avaliações",
-    date: "Há 1 ano",
-    highlight: "Excelente atendimento, a Dra. Juliana foi muito cuidadosa com meu caso.",
+    date: "Avaliação no Google",
+    highlight: "Ótimo profissional. Inteligente e atencioso. Recomendo.",
     content:
-      "Excelente atendimento. A Dra. Juliana foi muito cuidadosa com meu caso. Recomendo muito.",
+      "Ótimo profissional. Inteligente e atencioso. Recomendo com toda a certeza.",
   },
   {
-    name: "Graciele Cristina",
-    reviewsCount: "3 avaliações · 1 foto",
-    date: "Há 2 anos",
-    highlight: "Muito simpática, prestativa, auxilia muito bem e atende com agilidade!",
+    name: "Patrícia Rodrigues",
+    reviewsCount: "Local Guide · 59 avaliações · 24 fotos",
+    date: "Avaliação no Google",
+    highlight:
+      "Excelente advogado, oferece um atendimento exemplar e busca ajudar da melhor forma possível.",
     content:
-      "Gostaria de parabenizar a advogada Juliana pelo atendimento, muito simpática e prestativa, auxilia muito bem, e atende com agilidade sempre!",
+      "Excelente advogado, oferece um atendimento exemplar e busca ajudar da melhor forma possível. Muito competente!",
   },
   {
-    name: "Jaqueline Cristina",
+    name: "Neyla Reggiani",
+    reviewsCount: "2 avaliações",
+    date: "Avaliação no Google",
+    highlight: "Excelente profissional!",
+    content:
+      "Excelente profissional! Atendimento exemplar, muita seriedade e presteza na condução do caso.",
+  },
+  {
+    name: "Heladio Jose",
+    reviewsCount: "10 avaliações",
+    date: "Avaliação no Google",
+    highlight: "Profissional excelente e competente.",
+    content:
+      "Profissional excelente e competente. Recomendo pelo conhecimento e dedicação aos clientes.",
+  },
+  {
+    name: "Ana Célia Braz",
+    reviewsCount: "3 avaliações",
+    date: "Avaliação no Google",
+    highlight: "Excelente profissional!!",
+    content:
+      "Excelente profissional!! Atencioso, dedicado e esclareceu todas as dúvidas com muita clareza.",
+  },
+  {
+    name: "Antônio Miguel",
     reviewsCount: "1 avaliação",
-    date: "Há 7 meses",
-    highlight: "Superou as expectativas, super indico excelente profissional!",
+    date: "Avaliação no Google",
+    highlight: "Gente boa, prestativo e de total confiança.",
     content:
-      "Superou as expectativas, super indico excelente profissional gratidão por tudo.",
+      "Gente boa, atencioso e muito profissional. Recomendo a todos que precisam de um bom advogado.",
+  },
+  {
+    name: "Diego Novaes",
+    reviewsCount: "1 avaliação",
+    date: "Avaliação no Google",
+    highlight: "Excelente profissional",
+    content:
+      "Excelente profissional. Passou muita segurança desde o primeiro atendimento e conduziu tudo com maestria.",
+  },
+  {
+    name: "Gilberto Vieira",
+    reviewsCount: "6 avaliações · 1 foto",
+    date: "Avaliação no Google",
+    highlight: "Advogado de alta competência em João Monlevade.",
+    content:
+      "Escritório de alto padrão em João Monlevade. Profissional ético, atencioso e muito capacitado.",
+  },
+  {
+    name: "Taís Silva",
+    reviewsCount: "4 avaliações",
+    date: "Avaliação no Google",
+    highlight: "Atendimento impecável e retorno ágil.",
+    content:
+      "Atendimento impecável! Tirou todas as minhas dúvidas e resolveu a situação com muita competência e agilidade.",
+  },
+  {
+    name: "Marceli Alves Lagares",
+    reviewsCount: "4 avaliações",
+    date: "Avaliação no Google",
+    highlight: "Muito atencioso e dedicado à causa.",
+    content:
+      "Excelente profissional, muito atencioso e dedicado à causa do cliente. Super recomendo o Dr. Luciano Igor Brandão!",
+  },
+  {
+    name: "Thiago Mateus",
+    reviewsCount: "Avaliação no Google",
+    date: "Avaliação no Google",
+    highlight: "Ética, transparência e conhecimento aprofundado.",
+    content:
+      "Profissional ético e muito transparente. Conduziu o processo com rapidez, clareza e dedicação exemplar.",
   },
 ];
 
@@ -362,7 +363,7 @@ function Heading({
         className={
           light
             ? "font-display text-3xl sm:text-5xl lg:text-[3.25rem] font-bold leading-[1.12] tracking-[-0.015em] text-white"
-            : "font-display text-3xl sm:text-5xl lg:text-[3.25rem] font-bold leading-[1.12] tracking-[-0.015em] text-[#0a130c]"
+            : "font-display text-3xl sm:text-5xl lg:text-[3.25rem] font-bold leading-[1.12] tracking-[-0.015em] text-[#021426]"
         }
       >
         {children}
@@ -372,7 +373,7 @@ function Heading({
           className={
             light
               ? "mt-5 max-w-xl text-[15px] leading-relaxed text-slate-300 font-normal"
-              : "mt-5 max-w-xl text-[15px] leading-relaxed text-[#4b5a4d] font-normal"
+              : "mt-5 max-w-xl text-[15px] leading-relaxed text-[#3a4b5e] font-normal"
           }
         >
           {description}
@@ -399,24 +400,24 @@ export default function Home() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <main className="overflow-hidden bg-[#fcfbf8] text-[#0a130c]">
+      <main className="overflow-hidden bg-[#fcfbf8] text-[#021426]">
         {/* Navigation Bar */}
-        <header className="sticky top-0 z-40 border-b border-[#cda34f]/25 bg-[#0a110b]/95 backdrop-blur-xl">
+        <header className="sticky top-0 z-40 border-b border-[#d4af37]/25 bg-[#010d1a]/95 backdrop-blur-xl">
           <div className="mx-auto flex h-[95px] max-w-7xl items-center justify-between gap-5 px-5 sm:h-[110px] sm:px-8 lg:px-12">
             <a
               href="#inicio"
-              aria-label="Juliana Cota Consultoria Jurídica & Advocacia"
+              aria-label="Advogado Luciano Igor Brandão"
               onClick={closeMenu}
               className="flex items-center gap-3 transition-opacity hover:opacity-95 py-2"
             >
-              {/* Official 3D Gold Logo with transparent alpha */}
+              {/* Official 3D Gold & Navy Logo */}
               <Image
                 src="/logo.png"
-                width={1774}
-                height={887}
-                alt="Juliana Cota Consultoria Jurídica & Advocacia"
+                width={1024}
+                height={341}
+                alt="Advogado Luciano Igor Brandão"
                 priority
-                className="h-11 w-auto object-contain sm:h-14 lg:h-[60px]"
+                className="h-12 w-auto object-contain sm:h-16 lg:h-[68px]"
               />
             </a>
 
@@ -428,41 +429,41 @@ export default function Home() {
                 Início
               </a>
               <a className="nav-link" href="#sobre">
-                Sobre Nós
+                Sobre o Advogado
               </a>
               <a className="nav-link" href="#atuacao">
                 Áreas de Atuação
               </a>
-              <a className="nav-link" href="#manifesto">
-                Defesa dos Direitos
+              <a className="nav-link" href="#bancario">
+                Direito Bancário
               </a>
               <a className="nav-link" href="#orientacoes">
                 Orientações
               </a>
               <a className="nav-link" href="#avaliacoes">
-                Avaliações (97)
+                Avaliações (51)
               </a>
               <a className="nav-link" href="#contato">
-                Contato
+                Contato & Sede
               </a>
             </nav>
 
             <div className="hidden items-center gap-3 lg:flex">
               <a
-                href={INSTAGRAM_URL}
+                href={FACEBOOK_URL}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Instagram da Dra. Juliana Cota"
-                className="grid size-10 place-items-center rounded-full border border-[#cda34f]/30 text-slate-300 transition-all hover:border-[#cda34f] hover:bg-[#cda34f]/10 hover:text-white"
+                aria-label="Facebook do Advogado Luciano Igor Brandão"
+                className="grid size-10 place-items-center rounded-full border border-[#d4af37]/30 text-slate-300 transition-all hover:border-[#d4af37] hover:bg-[#d4af37]/10 hover:text-white"
               >
-                <InstagramIcon size={17} />
+                <FacebookIcon size={17} />
               </a>
               <a
                 href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="WhatsApp da Dra. Juliana Cota"
-                className="grid size-10 place-items-center rounded-full border border-[#cda34f]/30 text-slate-300 transition-all hover:border-[#cda34f] hover:bg-[#cda34f]/10 hover:text-white"
+                aria-label="WhatsApp do Advogado Luciano Igor Brandão"
+                className="grid size-10 place-items-center rounded-full border border-[#d4af37]/30 text-slate-300 transition-all hover:border-[#d4af37] hover:bg-[#d4af37]/10 hover:text-white"
               >
                 <WhatsAppIcon size={18} />
               </a>
@@ -481,7 +482,7 @@ export default function Home() {
               aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
               aria-expanded={menuOpen}
               aria-controls="mobile-navigation"
-              className="grid size-11 place-items-center rounded-full border border-[#cda34f]/30 text-white lg:hidden"
+              className="grid size-11 place-items-center rounded-full border border-[#d4af37]/30 text-white lg:hidden"
               onClick={() => setMenuOpen((open) => !open)}
             >
               {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -497,30 +498,30 @@ export default function Home() {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.22 }}
-                className="overflow-hidden border-t border-[#cda34f]/20 bg-[#0a110b] px-6 lg:hidden"
+                className="overflow-hidden border-t border-[#d4af37]/20 bg-[#010d1a] px-6 lg:hidden"
               >
                 <div className="mx-auto flex max-w-7xl flex-col gap-1 py-4">
                   {[
                     ["Início", "#inicio"],
-                    ["Sobre Nós & Dra. Juliana", "#sobre"],
+                    ["Sobre o Advogado", "#sobre"],
                     ["Áreas de Atuação", "#atuacao"],
-                    ["Defesa de Direitos & CLT", "#manifesto"],
-                    ["Orientações & Dicas Jurídicas", "#orientacoes"],
-                    ["Avaliações no Google (97)", "#avaliacoes"],
+                    ["Direito Bancário & Defesa", "#bancario"],
+                    ["Orientações & Artigos", "#orientacoes"],
+                    ["Avaliações no Google (51)", "#avaliacoes"],
                     ["Contato & Sede", "#contato"],
                   ].map(([label, href]) => (
                     <a
                       key={label}
                       href={href}
                       onClick={closeMenu}
-                      className="py-3 text-sm font-semibold text-slate-200 hover:text-[#eed083]"
+                      className="py-3 text-sm font-semibold text-slate-200 hover:text-[#fce778]"
                     >
                       {label}
                     </a>
                   ))}
                   <div className="mt-3 flex flex-col gap-2">
                     <a
-                      className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#977128] via-[#cda34f] to-[#eed083] px-5 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-[#0a130c] shadow-md transition-all hover:brightness-110"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#987226] via-[#d4af37] to-[#fce778] px-5 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-[#010d1a] shadow-md transition-all hover:brightness-110"
                       href={getWhatsAppUrl()}
                       target="_blank"
                       rel="noreferrer"
@@ -529,13 +530,13 @@ export default function Home() {
                       <WhatsAppIcon size={16} /> Falar no WhatsApp
                     </a>
                     <a
-                      className="inline-flex items-center justify-center gap-2 rounded-full border border-[#cda34f]/30 bg-white/5 px-5 py-3 text-xs font-semibold text-white/90 hover:bg-white/10"
-                      href={INSTAGRAM_URL}
+                      className="inline-flex items-center justify-center gap-2 rounded-full border border-[#d4af37]/30 bg-white/5 px-5 py-3 text-xs font-semibold text-white/90 hover:bg-white/10"
+                      href={FACEBOOK_URL}
                       target="_blank"
                       rel="noreferrer"
                       onClick={closeMenu}
                     >
-                      <InstagramIcon size={15} /> Siga @julianacota.adv
+                      <FacebookIcon size={15} /> Acompanhar no Facebook
                     </a>
                   </div>
                 </div>
@@ -544,14 +545,14 @@ export default function Home() {
           </AnimatePresence>
         </header>
 
-        {/* Hero Section — Nobre Fundo Escuro Esmeralda & Dourado Imperial */}
+        {/* Hero Section — Nobre Fundo Escuro Azul Safira & Dourado Imperial */}
         <section
           id="inicio"
-          className="relative isolate scroll-mt-24 border-b border-[#cda34f]/25 bg-[#0a110b] text-white"
+          className="relative isolate scroll-mt-24 border-b border-[#d4af37]/25 bg-[#021426] text-white"
         >
-          {/* Luz ambiente de destaque dourada e esmeralda */}
-          <div className="pointer-events-none absolute -right-32 top-8 -z-10 size-[38rem] rounded-full bg-gradient-to-bl from-[#cda34f]/15 via-[#152217]/50 to-transparent blur-3xl" />
-          <div className="pointer-events-none absolute -left-20 bottom-10 -z-10 size-[32rem] rounded-full bg-[#111a13]/90 blur-3xl" />
+          {/* Luz ambiente de destaque dourada e azul marinho profundo */}
+          <div className="pointer-events-none absolute -right-32 top-8 -z-10 size-[38rem] rounded-full bg-gradient-to-bl from-[#d4af37]/15 via-[#062547]/50 to-transparent blur-3xl" />
+          <div className="pointer-events-none absolute -left-20 bottom-10 -z-10 size-[32rem] rounded-full bg-[#010d1a]/95 blur-3xl" />
 
           <div className="mx-auto grid min-h-[660px] max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:min-h-[720px] lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 lg:px-12 lg:py-20">
             <motion.div
@@ -561,20 +562,20 @@ export default function Home() {
               className="relative z-10 max-w-2xl lg:py-6"
             >
               <motion.div variants={reveal} className="mb-6 flex flex-col items-start gap-3">
-                <span className="eyebrow-light">Juliana Cota Consultoria Jurídica & Advocacia</span>
-                <span className="inline-flex items-center gap-2 rounded-full border border-[#cda34f]/35 bg-[#152217]/85 px-4 py-1.5 text-[11px] font-semibold text-[#fae4a8] shadow-xs backdrop-blur-md">
-                  <span className="size-2 rounded-full bg-[#cda34f] animate-pulse" />
-                  Em frente ao Supermercado BH · Av. Getúlio Vargas, 5368 · Carneirinhos · João Monlevade - MG
+                <span className="eyebrow-light">Advogado Luciano Igor Brandão · {OAB_DISPLAY}</span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/35 bg-[#062547]/85 px-4 py-1.5 text-[11px] font-semibold text-[#fce778] shadow-xs backdrop-blur-md">
+                  <span className="size-2 rounded-full bg-[#d4af37] animate-pulse" />
+                  R. Fernão Dias, 303 - Sl 303 B · Carneirinhos · João Monlevade - MG
                 </span>
               </motion.div>
 
               <motion.h1
                 variants={reveal}
-                className="max-w-[760px] font-display text-[2.85rem] font-bold leading-[1.06] tracking-[-0.02em] text-white sm:text-6xl lg:text-[4.65rem]"
+                className="max-w-[760px] font-display text-[2.75rem] font-bold leading-[1.06] tracking-[-0.02em] text-white sm:text-6xl lg:text-[4.5rem]"
               >
-                Defesa incisiva dos seus direitos e assessoria com{" "}
+                Defesa incisiva dos seus direitos com{" "}
                 <span className="block mt-2 font-display italic text-gold-gradient font-normal">
-                  excelência, ética e segurança.
+                  técnica, combatividade e ética.
                 </span>
               </motion.h1>
 
@@ -582,11 +583,11 @@ export default function Home() {
                 variants={reveal}
                 className="mt-7 max-w-xl text-[15px] leading-relaxed text-slate-300 sm:text-base sm:leading-8 font-normal"
               >
-                Com sólida atuação em <strong className="text-white font-semibold">Direito do Trabalho</strong>,
-                defesa de trabalhadores, consultoria empresarial e causas estratégicas, a{" "}
-                <strong className="text-[#fae4a8] font-semibold">Dra. Juliana Cota</strong> oferece uma advocacia
-                combativa, ética e acolhedora. Atendimento presencial de excelência em Carneirinhos, João Monlevade/MG,
-                e consultoria digital ágil para clientes em todo o país.
+                Com sólida atuação em <strong className="text-white font-semibold">Direito Bancário</strong> (revisão de contratos e defesa contra juros abusivos e fraudes no consignado),
+                Direito Civil, Defesa do Consumidor e Contratos, o{" "}
+                <strong className="text-[#fce778] font-semibold">Dr. Luciano Igor Brandão</strong> oferece uma advocacia
+                estratégica, resolutiva e acolhedora. Atendimento presencial no bairro Carneirinhos, João Monlevade/MG,
+                e consultoria jurídica com total dedicação à sua causa.
               </motion.p>
 
               <motion.div
@@ -599,11 +600,11 @@ export default function Home() {
                   size="lg"
                   className="rounded-full shadow-lg"
                 >
-                  <WhatsAppIcon size={16} /> Falar com a Dra. Juliana Cota
+                  <WhatsAppIcon size={16} /> Falar com o Dr. Luciano Igor
                 </GlowingButton>
                 <a
                   href="#atuacao"
-                  className="group inline-flex items-center gap-2 px-3 py-3 text-sm font-bold text-slate-200 transition-colors hover:text-[#eed083]"
+                  className="group inline-flex items-center gap-2 px-3 py-3 text-sm font-bold text-slate-200 transition-colors hover:text-[#fce778]"
                 >
                   Conhecer áreas de atuação{" "}
                   <ArrowRight
@@ -618,16 +619,15 @@ export default function Home() {
                 className="mt-12 flex flex-wrap items-center gap-x-7 gap-y-4 border-t border-white/10 pt-6 text-xs text-slate-300"
               >
                 <span className="inline-flex items-center gap-2 font-medium">
-                  <Star size={16} className="fill-[#cda34f] text-[#cda34f]" />{" "}
-                  <strong className="text-white font-bold">5,0 estrelas</strong> no Google (97 avaliações)
+                  <Star size={16} className="fill-[#d4af37] text-[#d4af37]" />{" "}
+                  <strong className="text-white font-bold">Nota 5,0 estrelas</strong> no Google (51 avaliações)
                 </span>
                 <span className="inline-flex items-center gap-2 font-medium">
-                  <ShieldCheck size={16} className="text-[#cda34f]" /> Especialista
-                  em Direito do Trabalho & Consultoria
+                  <ShieldCheck size={16} className="text-[#d4af37]" /> {OAB_DISPLAY} · Advocacia Especializada
                 </span>
                 <span className="inline-flex items-center gap-2 font-medium">
-                  <MapPin size={16} className="text-[#cda34f]" /> Sede em
-                  João Monlevade e atendimento on-line
+                  <MapPin size={16} className="text-[#d4af37]" /> Sede em
+                  Carneirinhos, João Monlevade - MG
                 </span>
               </motion.div>
             </motion.div>
@@ -644,55 +644,55 @@ export default function Home() {
               className="relative mx-auto w-full max-w-[480px] lg:ml-auto lg:mr-2"
             >
               {/* Luxury ambient aura */}
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#cda34f]/30 via-[#152217]/30 to-transparent blur-2xl -z-10" />
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-[#d4af37]/30 via-[#062547]/40 to-transparent blur-2xl -z-10" />
 
               {/* Architectural outer hairline gold frame */}
-              <div className="absolute -inset-2.5 rounded-2xl border border-[#cda34f]/35 pointer-events-none" />
+              <div className="absolute -inset-2.5 rounded-2xl border border-[#d4af37]/35 pointer-events-none" />
 
               {/* Main portrait executive card */}
-              <div className="relative aspect-[0.76] overflow-hidden rounded-2xl bg-[#0a110b] shadow-2xl ring-1 ring-[#cda34f]/35">
+              <div className="relative aspect-[0.78] overflow-hidden rounded-2xl bg-[#010d1a] shadow-2xl ring-1 ring-[#d4af37]/35">
                 <Image
-                  src="/juliana-cota-hero.jpg"
-                  alt="Dra. Juliana Cota — Consultoria Jurídica & Advocacia"
+                  src="/luciano-igor-hero.jpg"
+                  alt="Dr. Luciano Igor Brandão — Advogado"
                   fill
                   priority
                   sizes="(max-width: 640px) 90vw, (max-width: 1024px) 70vw, 42vw"
-                  className="object-cover object-[50%_25%]"
+                  className="object-cover object-[50%_18%]"
                 />
 
                 {/* Gradient vignette on bottom */}
-                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#0a110b] via-[#0a110b]/60 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#010d1a] via-[#010d1a]/65 to-transparent" />
 
                 {/* Executive name overlay */}
                 <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-3 text-white sm:bottom-7 sm:left-7 sm:right-7">
                   <div>
                     <p className="font-display text-2xl font-bold tracking-tight text-white">
-                      Dra. Juliana Cota
+                      Dr. Luciano Igor Brandão
                     </p>
-                    <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.2em] text-[#fae4a8]">
-                      Consultoria Jurídica & Advocacia
+                    <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.2em] text-[#fce778]">
+                      Advogado · {OAB_DISPLAY}
                     </p>
                   </div>
-                  <span className="grid size-11 shrink-0 place-items-center rounded-full border border-[#cda34f]/40 bg-[#0a110b]/80 text-[#fae4a8] backdrop-blur-md shadow-lg">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-full border border-[#d4af37]/40 bg-[#021426]/85 text-[#fce778] backdrop-blur-md shadow-lg">
                     <Scale size={18} />
                   </span>
                 </div>
               </div>
 
               {/* Floating badges */}
-              <div className="absolute -left-3 top-[10%] rounded-full border border-[#cda34f]/40 bg-[#111a13]/95 px-4 py-2.5 text-[10px] font-bold tracking-[0.16em] text-[#fae4a8] shadow-xl backdrop-blur-md sm:-left-6 sm:px-5">
-                CONSULTORIA JURÍDICA & ADVOCACIA
+              <div className="absolute -left-3 top-[10%] rounded-full border border-[#d4af37]/40 bg-[#031b33]/95 px-4 py-2.5 text-[10px] font-bold tracking-[0.16em] text-[#fce778] shadow-xl backdrop-blur-md sm:-left-6 sm:px-5">
+                ADVOCACIA & CONSULTORIA JURÍDICA
               </div>
 
-              <div className="absolute -right-3 bottom-[18%] rounded-2xl border border-[#cda34f]/40 bg-[#111a13]/95 p-4 shadow-2xl backdrop-blur-md sm:-right-6">
-                <div className="flex items-center gap-2 text-[#cda34f]">
-                  <Star size={16} className="fill-[#cda34f]" />
+              <div className="absolute -right-3 bottom-[18%] rounded-2xl border border-[#d4af37]/40 bg-[#031b33]/95 p-4 shadow-2xl backdrop-blur-md sm:-right-6">
+                <div className="flex items-center gap-2 text-[#d4af37]">
+                  <Star size={16} className="fill-[#d4af37]" />
                   <span className="font-display text-lg font-bold text-white">
                     5,0 / 5,0
                   </span>
                 </div>
                 <p className="mt-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-300">
-                  97 Avaliações no Google
+                  51 Avaliações no Google
                 </p>
               </div>
             </motion.div>
@@ -702,14 +702,14 @@ export default function Home() {
         {/* Highlights Banner — Nobre Fundo Corporativo */}
         <section
           aria-label="Credenciais e Destaques"
-          className="border-b border-[#cda34f]/20 bg-[#111a13] text-white"
+          className="border-b border-[#d4af37]/20 bg-[#031b33] text-white"
         >
           <div className="mx-auto grid max-w-7xl gap-7 px-5 py-8 sm:grid-cols-4 sm:gap-4 sm:px-8 lg:px-12">
             {[
-              ["5,0 ★", "nota máxima com 97 avaliações autênticas no Google"],
-              ["Defesa Firme", "pulso firme e ética na garantia dos seus direitos"],
-              ["João Monlevade", "Av. Getúlio Vargas, 5368 (em frente Supermercado BH)"],
-              ["Brasil Inteiro", "atendimento presencial acolhedor e digital ágil"],
+              ["5,0 ★", "nota máxima com 51 avaliações verificadas no Google"],
+              ["OAB/MG", "nº 212.247 com atuação séria, ética e transparente"],
+              ["João Monlevade", "R. Fernão Dias, 303 - Sl 303 B (Carneirinhos)"],
+              ["Defesa Firme", "especialista em Direito Bancário, Civil e Contratos"],
             ].map(([value, label], index) => (
               <div
                 key={label}
@@ -730,7 +730,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Sobre Nós / Dra. Juliana Cota — Warm Alabaster Stone */}
+        {/* Sobre o Advogado / Dr. Luciano Igor Brandão — Warm Alabaster Stone */}
         <section
           id="sobre"
           className="scroll-mt-24 bg-[#faf9f5] py-20 sm:py-28 lg:py-32"
@@ -744,34 +744,34 @@ export default function Home() {
               variants={reveal}
               className="relative mx-auto w-full max-w-[540px]"
             >
-              <div className="relative aspect-[1.08] overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 border border-[#cda34f]/25">
+              <div className="relative aspect-[1.05] overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 border border-[#d4af37]/25">
                 <Image
-                  src="/juliana-cota-sobre.jpg"
-                  alt="Dra. Juliana Cota em atendimento e consultoria jurídica especializada"
+                  src="/luciano-igor-sobre.jpg"
+                  alt="Dr. Luciano Igor Brandão em consultoria jurídica"
                   fill
                   sizes="(max-width: 1024px) 90vw, 45vw"
-                  className="object-cover object-[50%_25%]"
+                  className="object-cover object-[50%_20%]"
                 />
               </div>
 
               {/* Authority card */}
-              <div className="absolute -bottom-6 right-3 max-w-[320px] rounded-xl border border-[#cda34f]/35 bg-white p-5 shadow-2xl sm:-right-6 sm:p-6">
-                <div className="flex items-center gap-2 text-[#977128]">
+              <div className="absolute -bottom-6 right-3 max-w-[320px] rounded-xl border border-[#d4af37]/35 bg-white p-5 shadow-2xl sm:-right-6 sm:p-6">
+                <div className="flex items-center gap-2 text-[#987226]">
                   <ShieldCheck size={18} />
                   <p className="text-[10px] font-bold uppercase tracking-[0.16em]">
-                    Atendimento de Pulso Firme
+                    Atendimento Sério & Dedicado
                   </p>
                 </div>
-                <p className="mt-1.5 font-display text-lg font-bold leading-snug text-[#0a130c]">
-                  Dra. Juliana Cota
+                <p className="mt-1.5 font-display text-lg font-bold leading-snug text-[#021426]">
+                  Dr. Luciano Igor Brandão
                 </p>
-                <p className="mt-1 text-xs leading-relaxed text-[#4b5a4d]">
-                  Atendimento acolhedor, transparente e combativo na defesa incansável
-                  dos direitos legítimos de cada trabalhador e cliente.
+                <p className="mt-1 text-xs leading-relaxed text-[#3a4b5e]">
+                  &ldquo;Se você procura alguém que vai levar sua causa a sério, acabou de encontrar.&rdquo;
+                  Conhecimento aprofundado, combatividade e atendimento humano nota 1000.
                 </p>
               </div>
 
-              <span className="absolute -left-4 -top-4 -z-10 size-24 rounded-tl-2xl border-l-2 border-t-2 border-[#cda34f]/50 sm:-left-6 sm:-top-6 sm:size-32" />
+              <span className="absolute -left-4 -top-4 -z-10 size-24 rounded-tl-2xl border-l-2 border-t-2 border-[#d4af37]/50 sm:-left-6 sm:-top-6 sm:size-32" />
             </motion.div>
 
             {/* Text description */}
@@ -779,133 +779,105 @@ export default function Home() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              variants={stagger}
+              variants={reveal}
             >
-              <motion.div variants={reveal}>
-                <span className="eyebrow mb-4">sobre nós · juliana cota advocacia</span>
-              </motion.div>
+              <span className="eyebrow mb-4">sobre o profissional · advocacia de excelência</span>
+              <h2 className="font-display text-3xl sm:text-5xl lg:text-[3.25rem] font-bold leading-[1.12] tracking-[-0.015em] text-[#021426]">
+                Compromisso inabalável com a verdade, a ética e o{" "}
+                <span className="font-display italic text-[#987226]">seu resultado.</span>
+              </h2>
 
-              <motion.h2
-                variants={reveal}
-                className="font-display text-3xl sm:text-5xl lg:text-[3.35rem] font-bold leading-[1.08] tracking-[-0.015em] text-[#0a130c]"
-              >
-                Defesa incansável dos seus direitos com{" "}
-                <span className="font-display italic text-[#977128]">
-                  competência, acolhimento e agilidade.
-                </span>
-              </motion.h2>
+              <p className="mt-6 text-[15px] leading-relaxed text-[#3a4b5e]">
+                O escritório do <strong className="text-[#021426] font-semibold">Advogado Luciano Igor Brandão</strong> ({OAB_DISPLAY})
+                nasceu com a vocação de proporcionar uma advocacia combativa, altamente técnica e próxima de cada cliente.
+                Com sede estruturada no bairro Carneirinhos em João Monlevade/MG, oferecemos uma estrutura acolhedora para atendimento presencial
+                e soluções jurídicas completas.
+              </p>
 
-              <motion.p
-                variants={reveal}
-                className="mt-6 max-w-xl text-[15px] leading-relaxed text-[#4b5a4d] font-normal"
-              >
-                A <strong className="text-[#0a130c] font-semibold">Juliana Cota Consultoria Jurídica & Advocacia</strong>,
-                conduzida com determinação e rigor técnico pela{" "}
-                <strong className="text-[#0a130c] font-semibold">Dra. Juliana Cota</strong>, é reconhecida em João Monlevade
-                e Minas Gerais pelo alto padrão ético, trato humanizado e defesa resolutiva de causas trabalhistas,
-                empresariais e civis.
-              </motion.p>
+              <p className="mt-4 text-[15px] leading-relaxed text-[#3a4b5e]">
+                Especialista na defesa contra <strong className="text-[#021426] font-semibold">abusos e fraudes do sistema bancário</strong>,
+                além de atuação de destaque em Direito Civil, Contratos, Relações de Consumo e Direito de Família, o Dr. Luciano Igor Brandão
+                conduz cada processo com minúcia documental, inteligência estratégica e comunicação permanente com o cliente.
+              </p>
 
-              <motion.p
-                variants={reveal}
-                className="mt-4 max-w-xl text-[15px] leading-relaxed text-[#4b5a4d] font-normal"
-              >
-                Classificado com a nota máxima de <strong className="text-[#0a130c] font-semibold">5,0 estrelas no Google (97 avaliações autênticas)</strong>,
-                nosso escritório se destaca pelo carinho no acolhimento de cada cliente, clareza didática na explicação
-                de cada etapa do processo e postura de pulso firme perante tribunais e mesas de negociação.
-              </motion.p>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {[
+                  ["Atendimento Direto com o Advogado", "Sem intermediários, com diálogo transparente e acessível."],
+                  ["Análise Minuciosa de Documentos", "Identificação precisa de irregularidades, fraudes e juros ilegais."],
+                  ["Ambiente Acolhedor e Nota 1000", "Sede confortável em Carneirinhos, João Monlevade - MG."],
+                  ["Soluções Rápidas & Eficazes", "Foco em resultados concretos pela via consensual ou judicial."],
+                ].map(([title, desc]) => (
+                  <div key={title} className="rounded-xl border border-[#d4af37]/20 bg-white p-4 shadow-xs">
+                    <p className="font-display text-sm font-bold text-[#021426]">{title}</p>
+                    <p className="mt-1 text-xs text-[#3a4b5e] leading-relaxed">{desc}</p>
+                  </div>
+                ))}
+              </div>
 
-              <motion.div
-                variants={reveal}
-                className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2"
-              >
-                <div className="flex items-center gap-2.5 text-xs text-[#0a130c] font-semibold">
-                  <CheckCircle2 size={16} className="text-[#977128] shrink-0" />
-                  <span>Auditoria minuciosa de direitos e rescisões contratuais</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-xs text-[#0a130c] font-semibold">
-                  <CheckCircle2 size={16} className="text-[#977128] shrink-0" />
-                  <span>Acompanhamento direto e transparente no WhatsApp</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-xs text-[#0a130c] font-semibold">
-                  <CheckCircle2 size={16} className="text-[#977128] shrink-0" />
-                  <span>Sede privilegiada em frente ao Supermercado BH em Carneirinhos</span>
-                </div>
-                <div className="flex items-center gap-2.5 text-xs text-[#0a130c] font-semibold">
-                  <CheckCircle2 size={16} className="text-[#977128] shrink-0" />
-                  <span>Consultoria presencial acolhedora e suporte digital seguro</span>
-                </div>
-              </motion.div>
-
-              <motion.div variants={reveal} className="mt-9">
+              <div className="mt-9">
                 <GlowingButton
-                  href={getWhatsAppUrl(
-                    "Olá, Dra. Juliana Cota. Gostaria de entender como o escritório pode me auxiliar com a minha causa jurídica."
-                  )}
+                  href={getWhatsAppUrl("Olá, Dr. Luciano Igor Brandão. Gostaria de agendar uma consulta para avaliar meu caso.")}
                   target="_blank"
                   size="md"
                   className="rounded-full shadow-md"
                 >
-                  <WhatsAppIcon size={16} /> Falar com a Dra. Juliana Cota
+                  <WhatsAppIcon size={16} /> Falar com o Dr. Luciano Igor
                 </GlowingButton>
-              </motion.div>
+              </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Manifesto / Foco Trabalhista & Direitos — Deep Dark Section */}
+        {/* Manifesto / Foco Bancário & Defesa Patrimonial — Deep Dark Section */}
         <section
-          id="manifesto"
-          className="relative isolate overflow-hidden bg-[#0a110b] py-20 text-white sm:py-28 lg:py-32"
+          id="bancario"
+          className="relative isolate overflow-hidden bg-[#010d1a] py-20 text-white sm:py-28 lg:py-32"
         >
-          <div className="pointer-events-none absolute -left-28 top-1/4 size-96 rounded-full bg-[#cda34f]/15 blur-3xl" />
-          <div className="pointer-events-none absolute -right-28 bottom-1/4 size-96 rounded-full bg-[#cda34f]/10 blur-3xl" />
+          <div className="pointer-events-none absolute -left-28 top-1/4 size-96 rounded-full bg-[#d4af37]/15 blur-3xl" />
+          <div className="pointer-events-none absolute -right-28 bottom-1/4 size-96 rounded-full bg-[#062547]/50 blur-3xl" />
 
           <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
             <div className="mx-auto max-w-3xl text-center">
-              <span className="eyebrow-light mb-4">posicionamento estratégico</span>
+              <span className="eyebrow-light mb-4">especialidade de destaque</span>
               <h2 className="mt-4 font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-[-0.015em] text-white">
-                Você não precisa aceitar abusos no trabalho{" "}
+                Você não precisa arcar com juros abusivos{" "}
                 <span className="font-display italic text-gold-gradient font-normal">
-                  nem abrir mão do que a lei garante a você.
+                  nem aceitar descontos indevidos na sua renda.
                 </span>
               </h2>
+              <p className="mt-5 text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
+                Milhares de pessoas pagam valores ilegais em financiamentos e sofrem descontos fraudulentos em benefícios do INSS ou folha de pagamento. A lei assegura a anulação e o ressarcimento.
+              </p>
             </div>
 
             <div className="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-2">
-              <div className="rounded-2xl border border-[#cda34f]/30 bg-[#152217]/85 p-8 backdrop-blur-md hover:border-[#cda34f]/60 transition-colors shadow-xl">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-[#cda34f]/20 text-[#fae4a8]">
-                  <Briefcase size={24} />
+              <div className="rounded-2xl border border-[#d4af37]/30 bg-[#062547]/85 p-8 backdrop-blur-md hover:border-[#d4af37]/60 transition-colors shadow-xl">
+                <div className="flex size-12 items-center justify-center rounded-xl bg-[#d4af37]/20 text-[#fce778]">
+                  <BadgePercent size={24} />
                 </div>
                 <h3 className="mt-5 font-display text-2xl font-bold text-white">
-                  Para o Trabalhador que Teve Direitos Violados
+                  Juros Abusivos em Financiamentos e Empréstimos
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-300">
-                  Atraso recorrente de salários, falta de depósito do FGTS, assédio moral,
-                  ambientes insalubres sem EPI ou demissões injustas não devem ser tolerados.
-                  Atuamos para requerer a Rescisão Indireta, reverter demissões abusivas e
-                  cobrar judicialmente todas as verbas, horas extras e indenizações devidas.
+                  Taxas acima da média de mercado do Banco Central, tarifas ilegais embutidas e vendas casadas geram cobranças desproporcionais em contratos de veículos e empréstimos pessoais. Realizamos o recálculo técnico para reduzir as parcelas ou extinguir o saldo devedor abusivo.
                 </p>
-                <div className="mt-6 flex items-center gap-2 text-xs font-bold text-[#fae4a8]">
-                  <CheckCircle2 size={16} /> Rescisão Indireta & Proteção Integral ao Trabalhador
+                <div className="mt-6 flex items-center gap-2 text-xs font-bold text-[#fce778]">
+                  <CheckCircle2 size={16} /> Ação Revisional & Redução Substancial de Parcelas
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-[#cda34f]/30 bg-[#152217]/85 p-8 backdrop-blur-md hover:border-[#cda34f]/60 transition-colors shadow-xl">
-                <div className="flex size-12 items-center justify-center rounded-xl bg-[#cda34f]/20 text-[#fae4a8]">
-                  <Building2 size={24} />
+              <div className="rounded-2xl border border-[#d4af37]/30 bg-[#062547]/85 p-8 backdrop-blur-md hover:border-[#d4af37]/60 transition-colors shadow-xl">
+                <div className="flex size-12 items-center justify-center rounded-xl bg-[#d4af37]/20 text-[#fce778]">
+                  <Landmark size={24} />
                 </div>
                 <h3 className="mt-5 font-display text-2xl font-bold text-white">
-                  Para Empresas que Buscam Segurança e Conformidade
+                  Fraudes no Consignado e Cartão RMC/RCC
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-300">
-                  Gerir colaboradores sem assessoria jurídica preventiva expõe a organização
-                  a passivos milionários e processos desgastantes. Nossa consultoria audita rotinas,
-                  elabora contratos robustos e atua na defesa combativa de reclamatórias para
-                  proteger o patrimônio da sua empresa.
+                  Aposentados e servidores frequentemente são vítimas de empréstimos nunca contratados ou contratos perpétuos de cartão de crédito consignado (RMC/RCC). Atuamos com rapidez para cessar os descontos, restituir o dinheiro em dobro e pleitear indenização por danos morais.
                 </p>
-                <div className="mt-6 flex items-center gap-2 text-xs font-bold text-[#fae4a8]">
-                  <CheckCircle2 size={16} /> Auditoria Trabalhista Preventiva & Redução de Riscos
+                <div className="mt-6 flex items-center gap-2 text-xs font-bold text-[#fce778]">
+                  <CheckCircle2 size={16} /> Suspensão Imediata & Devolução em Dobro dos Valores
                 </div>
               </div>
             </div>
@@ -913,16 +885,16 @@ export default function Home() {
             <div className="mt-12 text-center">
               <GlowingButton
                 href={getWhatsAppUrl(
-                  "Olá, Dra. Juliana Cota. Gostaria de enviar os dados da minha situação para uma avaliação inicial do meu caso."
+                  "Olá, Dr. Luciano Igor Brandão. Gostaria de enviar os dados do meu contrato ou extrato para avaliação bancária."
                 )}
                 target="_blank"
                 size="lg"
                 className="rounded-full shadow-lg"
               >
-                <WhatsAppIcon size={17} /> Enviar meu caso para avaliação no WhatsApp
+                <WhatsAppIcon size={17} /> Enviar meu contrato para análise no WhatsApp
               </GlowingButton>
               <p className="mt-3 text-xs text-slate-400">
-                Atendimento sigiloso, transparente e com retorno prioritário pela Dra. Juliana Cota.
+                Atendimento sigiloso, transparente e com retorno ágil pelo Dr. Luciano Igor Brandão.
               </p>
             </div>
           </div>
@@ -943,16 +915,16 @@ export default function Home() {
             >
               <Heading
                 eyebrow="áreas de atuação especializada"
-                description="Assessoria jurídica dedicada e personalizada com alto rigor técnico para defender o seu patrimônio, sua dignidade e os seus direitos."
+                description="Assessoria jurídica dedicada com alto rigor técnico para defender o seu patrimônio, sua dignidade e os seus direitos em João Monlevade e região."
               >
                 Soluções estratégicas em{" "}
-                <span className="font-display italic text-[#977128]">
-                  Consultoria Jurídica & Advocacia.
+                <span className="font-display italic text-[#987226]">
+                  Advocacia & Consultoria Jurídica.
                 </span>
               </Heading>
-              <p className="max-w-[260px] pb-1 text-xs leading-relaxed text-[#4b5a4d] font-medium">
+              <p className="max-w-[260px] pb-1 text-xs leading-relaxed text-[#3a4b5e] font-medium">
                 Selecione uma área para visualizar o detalhamento completo dos serviços
-                e conversar diretamente com a Dra. Juliana Cota.
+                e conversar diretamente com o Dr. Luciano Igor Brandão.
               </p>
             </motion.div>
 
@@ -969,25 +941,25 @@ export default function Home() {
                   <motion.article
                     key={area.id}
                     variants={reveal}
-                    className="group flex min-h-[350px] flex-col rounded-2xl border border-[#cda34f]/25 bg-white p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#cda34f]/60 hover:shadow-xl"
+                    className="group flex min-h-[350px] flex-col rounded-2xl border border-[#d4af37]/25 bg-white p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#d4af37]/60 hover:shadow-xl"
                   >
                     <div className="flex items-start justify-between">
-                      <span className="grid size-12 place-items-center rounded-xl bg-[#fbf3e2] text-[#977128] transition-colors group-hover:bg-[#cda34f] group-hover:text-white">
+                      <span className="grid size-12 place-items-center rounded-xl bg-[#fbf3e2] text-[#987226] transition-colors group-hover:bg-[#d4af37] group-hover:text-white">
                         <Icon size={22} strokeWidth={1.8} />
                       </span>
-                      <span className="font-display font-bold text-2xl text-slate-300 group-hover:text-[#cda34f] transition-colors">
+                      <span className="font-display font-bold text-2xl text-slate-300 group-hover:text-[#d4af37] transition-colors">
                         0{index + 1}
                       </span>
                     </div>
 
                     <div className="mt-6">
-                      <span className="inline-block rounded-md bg-[#fbf3e2] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#977128]">
+                      <span className="inline-block rounded-md bg-[#fbf3e2] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-[#987226]">
                         {area.tag}
                       </span>
-                      <h3 className="mt-3 font-display font-bold text-xl leading-snug text-[#0a130c]">
+                      <h3 className="mt-3 font-display font-bold text-xl leading-snug text-[#021426]">
                         {area.title}
                       </h3>
-                      <p className="mt-3 text-[13px] leading-relaxed text-[#4b5a4d]">
+                      <p className="mt-3 text-[13px] leading-relaxed text-[#3a4b5e]">
                         {area.summary}
                       </p>
                     </div>
@@ -995,7 +967,7 @@ export default function Home() {
                     <button
                       type="button"
                       onClick={() => setActiveArea(area)}
-                      className="group/link mt-auto inline-flex w-fit items-center gap-2 pt-6 text-[11px] font-bold uppercase tracking-[0.16em] text-[#977128] hover:text-[#cda34f] cursor-pointer"
+                      className="group/link mt-auto inline-flex w-fit items-center gap-2 pt-6 text-[11px] font-bold uppercase tracking-[0.16em] text-[#987226] hover:text-[#d4af37] cursor-pointer"
                     >
                       Ver detalhes e tópicos{" "}
                       <ArrowRight
@@ -1010,88 +982,87 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Informação e Análise Jurídica (Artigos Editoriais Práticos da Dra. Juliana) */}
-        <section id="orientacoes" className="bg-[#111a13] py-20 sm:py-28 text-white">
+        {/* Informação e Análise Jurídica (Artigos Editoriais Práticos do Dr. Luciano Igor) */}
+        <section id="orientacoes" className="bg-[#031b33] py-20 sm:py-28 text-white">
           <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
             <div className="grid items-end gap-7 md:grid-cols-[1fr_auto]">
               <Heading
-                eyebrow="análise & orientações trabalhistas"
+                eyebrow="análise & orientações práticas"
                 light
-                description="Esclarecimentos práticos da Dra. Juliana Cota sobre direitos dos trabalhadores, rescisão indireta e aplicação segura da CLT."
+                description="Esclarecimentos práticos do Dr. Luciano Igor Brandão sobre Direito Bancário, revisão de dívidas e proteção contratual."
               >
                 Esclarecimentos práticos para{" "}
                 <span className="font-display italic text-gold-gradient font-normal">proteger os seus direitos.</span>
               </Heading>
               <a
                 href={getWhatsAppUrl(
-                  "Olá, Dra. Juliana Cota. Acompanho seus conteúdos sobre Direito do Trabalho e gostaria de tirar uma dúvida jurídica."
+                  "Olá, Dr. Luciano Igor Brandão. Acompanho seus conteúdos jurídicos e gostaria de tirar uma dúvida sobre meu caso."
                 )}
                 target="_blank"
                 rel="noreferrer"
-                className="group mb-1 inline-flex w-fit items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#fae4a8] hover:text-white"
+                className="group mb-1 inline-flex w-fit items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-[#fce778] hover:text-white"
               >
                 Fazer uma pergunta jurídica <ArrowUpRight size={15} />
               </a>
             </div>
 
             <div className="mt-11 grid gap-8 md:grid-cols-2">
-              {/* Card 1: Rescisão Indireta */}
+              {/* Card 1: Direito Bancário e Juros */}
               <motion.article
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.65 }}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#cda34f]/30 bg-[#0a110b] text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#cda34f]/60"
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#d4af37]/30 bg-[#010d1a] text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#d4af37]/60"
               >
                 <div className="relative aspect-[1080/700] w-full overflow-hidden bg-slate-900">
                   <Image
-                    src="/artigo-rescisao-indireta.jpg"
-                    alt="Rescisão Indireta do Contrato de Trabalho — Juliana Cota Advocacia"
+                    src="/artigo-direito-bancario.webp"
+                    alt="Direito Bancário e Revisão de Contratos — Advogado Luciano Igor Brandão"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover object-[50%_25%] transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="object-cover object-[50%_35%] transition-transform duration-700 group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="flex flex-1 flex-col justify-between p-7 sm:p-8">
                   <div>
-                    <span className="inline-block rounded-md bg-[#cda34f]/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#fae4a8]">
-                      Direito do Trabalhador & CLT
+                    <span className="inline-block rounded-md bg-[#d4af37]/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#fce778]">
+                      Direito Bancário & Contratos
                     </span>
                     <h3 className="mt-4 font-display font-bold text-2xl leading-snug sm:text-3xl text-white">
-                      Rescisão Indireta: Quando o empregado pode &ldquo;demitir&rdquo; a empresa com todos os direitos?
+                      Juros Abusivos e Fraudes no Consignado: Como saber se seu contrato está ilegal?
                     </h3>
                     <p className="mt-3 text-xs leading-relaxed text-slate-300">
-                      Quando o empregador atrasa salários reiteradamente, não deposita o FGTS,
-                      pratica assédio moral ou impõe riscos desnecessários, o trabalhador não
-                      precisa pedir demissão e perder benefícios. Na rescisão indireta, você
-                      recebe aviso prévio, saque do FGTS com multa de 40% e seguro-desemprego.
+                      Cobranças disfarçadas de tarifas, juros capitalizados além do permitido pelo Banco Central
+                      e descontos automáticos de cartões RMC e RCC sem autorização prévia são nulos perante o Código de Defesa do Consumidor.
+                      A via judicial garante o estorno das parcelas e compensação financeira.
                     </p>
                   </div>
                   <a
                     href={getWhatsAppUrl(
-                      "Olá, Dra. Juliana Cota. Gostaria de saber se a minha situação na empresa se enquadra em Rescisão Indireta."
+                      "Olá, Dr. Luciano Igor Brandão. Gostaria de saber se meu contrato bancário possui juros abusivos ou descontos indevidos."
                     )}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#fae4a8] transition-colors hover:text-white"
+                    className="mt-6 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#fce778] transition-colors hover:text-white"
                   >
-                    Analisar meu caso de rescisão <ArrowUpRight size={14} />
+                    Analisar meu contrato bancário <ArrowUpRight size={14} />
                   </a>
                 </div>
               </motion.article>
 
-              {/* Card 2: Direitos Trabalhistas e Justa Causa */}
+              {/* Card 2: Direito Civil e Gestão Contratual */}
               <motion.article
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.65, delay: 0.1 }}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#cda34f]/30 bg-[#0a110b] text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#cda34f]/60"
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#d4af37]/30 bg-[#010d1a] text-white shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#d4af37]/60"
               >
                 <div className="relative aspect-[1080/700] w-full overflow-hidden bg-slate-900">
                   <Image
-                    src="/artigo-direitos-trabalhistas.jpg"
-                    alt="CLT na Prática e Direitos Trabalhistas — Juliana Cota Advocacia"
+                    src="/artigo-contratos-civel.webp"
+                    alt="Direito Civil e Gestão Contratual — Advogado Luciano Igor Brandão"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover object-[50%_25%] transition-transform duration-700 group-hover:scale-[1.03]"
@@ -1099,28 +1070,27 @@ export default function Home() {
                 </div>
                 <div className="flex flex-1 flex-col justify-between p-7 sm:p-8">
                   <div>
-                    <span className="inline-block rounded-md bg-[#cda34f]/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#fae4a8]">
-                      CLT na Prática & Consultoria
+                    <span className="inline-block rounded-md bg-[#d4af37]/20 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#fce778]">
+                      Direito Civil & Segurança Jurídica
                     </span>
                     <h3 className="mt-4 font-display font-bold text-2xl leading-snug sm:text-3xl text-white">
-                      Demissão por Justa Causa: Quando ela pode ser aplicada ou revertida na Justiça?
+                      Contratos Blindados: A importância da redação preventiva para evitar prejuízos
                     </h3>
                     <p className="mt-3 text-xs leading-relaxed text-slate-300">
-                      A justa causa é a penalidade máxima do contrato de trabalho e exige prova
-                      robusta, proporcionalidade e imediatidade. Muitas demissões por justa causa
-                      são infundadas ou abusivas e podem ser totalmente revertidas judicialmente,
-                      restituindo as verbas rescisórias e a honra do trabalhador.
+                      Um contrato mal redigido é a principal causa de litígios desgastantes e perdas financeiras.
+                      A análise prévia de cláusulas de rescisão, penalidades, garantias e deveres das partes blinda seu patrimônio
+                      e assegura tranquilidade total nas transações civis e comerciais.
                     </p>
                   </div>
                   <a
                     href={getWhatsAppUrl(
-                      "Olá, Dra. Juliana Cota. Fui demitido(a) por justa causa ou tenho dúvidas sobre meus direitos rescisórios."
+                      "Olá, Dr. Luciano Igor Brandão. Preciso de assessoria na elaboração ou revisão de um contrato civil."
                     )}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#fae4a8] transition-colors hover:text-white"
+                    className="mt-6 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-[#fce778] transition-colors hover:text-white"
                   >
-                    Consultar direitos de demissão <ArrowUpRight size={14} />
+                    Revisar ou elaborar contrato <ArrowUpRight size={14} />
                   </a>
                 </div>
               </motion.article>
@@ -1129,15 +1099,15 @@ export default function Home() {
         </section>
 
         {/* Compromisso Profissional e Diferenciais — Deep Dark Velvet */}
-        <section className="relative overflow-hidden bg-[#0a110b] py-20 text-white sm:py-28 lg:py-32 border-b border-[#cda34f]/20">
-          <div className="pointer-events-none absolute -left-28 top-1/4 size-96 rounded-full bg-[#cda34f]/15 blur-3xl" />
+        <section className="relative overflow-hidden bg-[#021426] py-20 text-white sm:py-28 lg:py-32 border-b border-[#d4af37]/20">
+          <div className="pointer-events-none absolute -left-28 top-1/4 size-96 rounded-full bg-[#d4af37]/15 blur-3xl" />
           <div className="pointer-events-none absolute -right-28 bottom-1/4 size-96 rounded-full bg-slate-900/40 blur-3xl" />
 
           <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-12">
             <Heading
               eyebrow="nosso compromisso profissional"
               light
-              description="A condução de cada demanda com absoluto rigor técnico, escuta acolhedora e postura resolutiva de quem defende seus interesses com firmeza e ética."
+              description="A condução de cada demanda com rigor técnico, ética e postura resolutiva de quem defende seus interesses com firmeza e dedicação integral."
             >
               A precisão técnica aliada ao{" "}
               <span className="font-display italic text-gold-gradient font-normal">
@@ -1155,18 +1125,18 @@ export default function Home() {
               {[
                 [
                   "01",
-                  "Análise minuciosa de documentos e atendimento sob medida",
-                  "Examinamos cada folha de ponto, extrato de FGTS, recibo e documento contratual. Elaboramos teses sólidas e personalizadas, sem soluções genéricas ou modelos pré-fabricados.",
+                  "Análise minuciosa de contratos e atendimento sob medida",
+                  "Examinamos cada cláusula, taxa de juros, extrato e documento. Elaboramos teses sólidas e personalizadas, sem soluções genéricas ou modelos pré-fabricados.",
                 ],
                 [
                   "02",
                   "Comunicação direta, ágil e acolhedora no WhatsApp",
-                  "Você é mantido informado sobre todos os andamentos da causa com clareza e transparência. Acesso facilitado à Dra. Juliana Cota para esclarecer dúvidas com rapidez e atenção.",
+                  "Você é mantido informado sobre todos os andamentos da causa com clareza e transparência. Acesso facilitado ao Dr. Luciano Igor Brandão para esclarecer dúvidas com rapidez e atenção.",
                 ],
                 [
                   "03",
-                  "Postura de pulso firme e busca incansável por resultados",
-                  "Atuamos com coragem e firmeza perante tribunais e empresas para que você receba integralmente os direitos que a lei e a justiça asseguram à sua trajetória.",
+                  "Combatividade técnica e busca incansável por resultados",
+                  "Atuamos com coragem e firmeza perante tribunais, bancos e empresas para que você receba integralmente os direitos que a lei e a justiça asseguram.",
                 ],
               ].map(([number, title, description]) => (
                 <motion.div
@@ -1189,7 +1159,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Avaliações no Google (Depoimentos Autênticos da Dra. Juliana Cota) */}
+        {/* Avaliações no Google (Depoimentos Autênticos do Dr. Luciano Igor Brandão) */}
         <section
           id="avaliacoes"
           className="scroll-mt-24 bg-[#faf9f5] py-20 sm:py-28 lg:py-32"
@@ -1199,11 +1169,11 @@ export default function Home() {
               <div>
                 <Heading
                   eyebrow="prova social & avaliações reais"
-                  description="A reputação da Dra. Juliana Cota é forjada com ética, empatia e vitórias jurídicas. Confira os depoimentos de clientes que confiaram suas causas ao nosso escritório no Google Meu Negócio."
+                  description="A reputação do Dr. Luciano Igor Brandão é comprovada por quem contratou e confiou. Confira os depoimentos de clientes no Google Meu Negócio."
                 >
                   Confiança atestada com{" "}
-                  <span className="font-display italic text-[#977128]">
-                    nota máxima 5,0 por 97 clientes.
+                  <span className="font-display italic text-[#987226]">
+                    nota máxima 5,0 por 51 clientes.
                   </span>
                 </Heading>
 
@@ -1212,7 +1182,7 @@ export default function Home() {
                     href={GOOGLE_MAPS_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="group inline-flex items-center gap-2 border-b-2 border-[#977128] pb-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#0a130c] hover:text-[#cda34f]"
+                    className="group inline-flex items-center gap-2 border-b-2 border-[#987226] pb-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#021426] hover:text-[#d4af37]"
                   >
                     Ver todas as avaliações no Google Maps <ArrowUpRight size={15} />
                   </a>
@@ -1222,17 +1192,17 @@ export default function Home() {
                 <div className="mt-9 flex flex-wrap gap-2">
                   {[
                     "Nota 5,0 Máxima no Google",
-                    "Extremamente profissional",
-                    "Competência extraordinária",
-                    "Mulher de pulso firme e ética",
-                    "Atendimento acolhedor e ágil",
-                    "Retorno rápido e explicativo",
+                    "Competência e vasto conhecimento",
+                    "Ambiente nota 1000",
+                    "Inteligente e atencioso",
+                    "Atendimento exemplar",
+                    "Leva a causa a sério",
                   ].map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-[#cda34f]/30 bg-white px-3.5 py-1.5 text-[11px] font-semibold text-[#0a130c] shadow-xs"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-[#d4af37]/30 bg-white px-3.5 py-1.5 text-[11px] font-semibold text-[#021426] shadow-xs"
                     >
-                      <CheckCircle2 size={14} className="text-[#977128]" />
+                      <CheckCircle2 size={14} className="text-[#987226]" />
                       {tag}
                     </span>
                   ))}
@@ -1240,173 +1210,80 @@ export default function Home() {
               </div>
 
               {/* Public score box */}
-              <div className="relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-2xl border border-[#cda34f]/35 bg-white p-8 shadow-xl sm:p-10">
+              <div className="relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-2xl border border-[#d4af37]/35 bg-white p-8 shadow-xl sm:p-10">
                 <div className="relative flex items-center justify-between gap-4">
-                  <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#4b5a4d]">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#3a4b5e]">
                     Avaliações Verificadas · Google Meu Negócio
                   </span>
-                  <div className="flex gap-1 text-[#cda34f]" aria-label="5 de 5 estrelas">
+                  <div className="flex gap-1 text-[#d4af37]" aria-label="5 de 5 estrelas">
                     {Array.from({ length: 5 }, (_, index) => (
                       <Star
                         key={index}
-                        size={18}
-                        fill="currentColor"
-                        strokeWidth={1}
+                        size={17}
+                        className="fill-[#d4af37] text-[#d4af37]"
                       />
                     ))}
                   </div>
                 </div>
 
-                <div className="relative mt-8 flex flex-wrap items-end justify-between gap-6">
+                <div className="my-6 flex items-baseline gap-4">
+                  <span className="font-display text-5xl sm:text-6xl font-bold tracking-tight text-[#021426]">
+                    5,0
+                  </span>
                   <div>
-                    <span className="font-display text-7xl sm:text-8xl font-bold leading-none text-[#0a130c]">
-                      5,0
-                    </span>
-                    <p className="mt-2 text-xs font-bold text-[#977128]">
-                      Classificação Máxima de Excelência
+                    <p className="text-sm font-bold text-[#021426]">
+                      Classificação Máxima
                     </p>
-                  </div>
-                  <div className="pb-1 text-right">
-                    <p className="font-display text-3xl font-bold text-gold-gradient">
-                      97 avaliações
-                    </p>
-                    <p className="mt-1 text-xs text-[#4b5a4d] font-medium">
-                      Reconhecimento comprovado em João Monlevade - MG
+                    <p className="text-xs text-[#3a4b5e]">
+                      Com base em 51 avaliações de clientes reais
                     </p>
                   </div>
                 </div>
+
+                <p className="border-t border-slate-100 pt-4 text-xs leading-relaxed text-[#3a4b5e]">
+                  &ldquo;Se você está procurando alguém que vai levar sua causa a sério, acabou de encontrar. Recomendo o Igor por sua competência e vasto conhecimento... O ambiente também é nota 1000.&rdquo; — Paula Garcia
+                </p>
               </div>
             </div>
 
-            {/* Testimonials Grid - Row 1 */}
-            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {clientReviews.slice(0, 4).map((review) => (
+            {/* Testimonials Grid */}
+            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {clientReviews.map((review) => (
                 <div
                   key={review.name}
-                  className="flex flex-col justify-between rounded-2xl border border-[#cda34f]/20 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[#cda34f]/50 hover:shadow-lg"
+                  className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-7 shadow-xs transition-all hover:border-[#d4af37]/50 hover:shadow-md"
                 >
                   <div>
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex gap-0.5 text-[#cda34f]">
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex gap-0.5 text-[#d4af37]">
                         {Array.from({ length: 5 }, (_, i) => (
                           <Star
                             key={i}
                             size={14}
-                            fill="currentColor"
-                            strokeWidth={1}
+                            className="fill-[#d4af37] text-[#d4af37]"
                           />
                         ))}
                       </div>
-                      <span className="text-[11px] text-slate-400 font-medium">
+                      <span className="text-[10px] font-semibold text-slate-400">
                         {review.date}
                       </span>
                     </div>
 
-                    <p className="mt-4 text-xs font-bold text-[#0a130c]">
+                    <p className="mt-4 font-display text-sm font-bold leading-snug text-[#021426]">
                       &ldquo;{review.highlight}&rdquo;
                     </p>
 
-                    <p className="mt-2.5 text-[13px] leading-relaxed text-[#4b5a4d]">
+                    <p className="mt-2.5 text-xs leading-relaxed text-[#3a4b5e]">
                       &ldquo;{review.content}&rdquo;
                     </p>
                   </div>
 
                   <div className="mt-6 border-t border-slate-100 pt-4">
-                    <p className="font-display text-sm font-bold text-[#0a130c]">
+                    <p className="font-display text-sm font-bold text-[#021426]">
                       {review.name}
                     </p>
                     <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-                      {review.reviewsCount} no Google
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Testimonials Grid - Row 2 */}
-            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {clientReviews.slice(4, 8).map((review) => (
-                <div
-                  key={review.name}
-                  className="flex flex-col justify-between rounded-2xl border border-[#cda34f]/20 bg-[#fdfaf3] p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[#cda34f]/50 hover:shadow-lg"
-                >
-                  <div>
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex gap-0.5 text-[#cda34f]">
-                        {Array.from({ length: 5 }, (_, i) => (
-                          <Star
-                            key={i}
-                            size={14}
-                            fill="currentColor"
-                            strokeWidth={1}
-                          />
-                        ))}
-                      </div>
-                      <span className="text-[11px] text-slate-400 font-medium">
-                        {review.date}
-                      </span>
-                    </div>
-
-                    <p className="mt-4 text-xs font-bold text-[#0a130c]">
-                      &ldquo;{review.highlight}&rdquo;
-                    </p>
-
-                    <p className="mt-2.5 text-[13px] leading-relaxed text-[#4b5a4d]">
-                      &ldquo;{review.content}&rdquo;
-                    </p>
-                  </div>
-
-                  <div className="mt-6 border-t border-slate-200 pt-4">
-                    <p className="font-display text-sm font-bold text-[#0a130c]">
-                      {review.name}
-                    </p>
-                    <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-                      {review.reviewsCount} no Google
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Testimonials Grid - Row 3 */}
-            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {clientReviews.slice(8, 12).map((review) => (
-                <div
-                  key={review.name}
-                  className="flex flex-col justify-between rounded-2xl border border-[#cda34f]/20 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[#cda34f]/50 hover:shadow-lg"
-                >
-                  <div>
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex gap-0.5 text-[#cda34f]">
-                        {Array.from({ length: 5 }, (_, i) => (
-                          <Star
-                            key={i}
-                            size={14}
-                            fill="currentColor"
-                            strokeWidth={1}
-                          />
-                        ))}
-                      </div>
-                      <span className="text-[11px] text-slate-400 font-medium">
-                        {review.date}
-                      </span>
-                    </div>
-
-                    <p className="mt-4 text-xs font-bold text-[#0a130c]">
-                      &ldquo;{review.highlight}&rdquo;
-                    </p>
-
-                    <p className="mt-2.5 text-[13px] leading-relaxed text-[#4b5a4d]">
-                      &ldquo;{review.content}&rdquo;
-                    </p>
-                  </div>
-
-                  <div className="mt-6 border-t border-slate-100 pt-4">
-                    <p className="font-display text-sm font-bold text-[#0a130c]">
-                      {review.name}
-                    </p>
-                    <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-                      {review.reviewsCount} no Google
+                      {review.reviewsCount}
                     </p>
                   </div>
                 </div>
@@ -1415,39 +1292,39 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Conecte-se com a Dra. Juliana Cota no Instagram (@julianacota.adv) */}
-        <section className="border-t border-[#cda34f]/20 bg-[#0a110b] py-16 sm:py-20 text-white">
+        {/* Conecte-se com o Advogado Luciano Igor Brandão no Facebook */}
+        <section className="border-t border-[#d4af37]/20 bg-[#010d1a] py-16 sm:py-20 text-white">
           <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-            <div className="flex flex-col items-center justify-between gap-8 rounded-3xl border border-[#cda34f]/30 bg-[#152217]/90 p-8 sm:p-12 lg:flex-row lg:gap-14 shadow-2xl backdrop-blur-md">
+            <div className="flex flex-col items-center justify-between gap-8 rounded-3xl border border-[#d4af37]/30 bg-[#062547]/90 p-8 sm:p-12 lg:flex-row lg:gap-14 shadow-2xl backdrop-blur-md">
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-center">
-                <div className="relative size-28 shrink-0 overflow-hidden rounded-full border-2 border-[#cda34f] shadow-lg sm:size-32">
+                <div className="relative size-28 shrink-0 overflow-hidden rounded-full border-2 border-[#d4af37] shadow-lg sm:size-32">
                   <Image
-                    src="/juliana-cota-social.jpg"
-                    alt="Dra. Juliana Cota no Instagram @julianacota.adv"
+                    src="/luciano-igor-social.jpg"
+                    alt="Advogado Luciano Igor Brandão"
                     fill
                     className="object-cover object-[50%_15%]"
                   />
                 </div>
                 <div className="text-center sm:text-left">
-                  <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-[#fae4a8]">
-                    <InstagramIcon size={16} /> @julianacota.adv
+                  <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-[#fce778]">
+                    <FacebookIcon size={16} /> Advogado - Luciano Igor Brandão
                   </span>
                   <h3 className="mt-2 font-display text-2xl font-bold text-white sm:text-3xl">
-                    Acompanhe a Dra. Juliana Cota no Instagram
+                    Acompanhe o Dr. Luciano Igor Brandão
                   </h3>
                   <p className="mt-2 max-w-md text-xs leading-relaxed text-slate-300 sm:text-sm">
-                    Orientações práticas sobre rescisão indireta, direitos dos trabalhadores,
-                    CLT na prática, demissões e dicas jurídicas essenciais no dia a dia.
+                    Orientações práticas sobre Direito Bancário, renegociação de dívidas, defesa de direitos,
+                    contratos e informativos jurídicos essenciais para o seu dia a dia.
                   </p>
                 </div>
               </div>
               <a
-                href={INSTAGRAM_URL}
+                href={FACEBOOK_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex shrink-0 items-center gap-2.5 rounded-full bg-gradient-to-r from-[#977128] via-[#cda34f] to-[#eed083] px-7 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-[#0a130c] shadow-md transition-all hover:brightness-110"
+                className="group inline-flex shrink-0 items-center gap-2.5 rounded-full bg-gradient-to-r from-[#987226] via-[#d4af37] to-[#fce778] px-7 py-3.5 text-xs font-bold uppercase tracking-[0.14em] text-[#010d1a] shadow-md transition-all hover:brightness-110"
               >
-                <InstagramIcon size={16} /> Seguir @julianacota.adv <ArrowUpRight size={15} />
+                <FacebookIcon size={16} /> Seguir no Facebook <ArrowUpRight size={15} />
               </a>
             </div>
           </div>
@@ -1462,10 +1339,10 @@ export default function Home() {
             <div>
               <Heading
                 eyebrow="contato & localização"
-                description="Agende seu atendimento presencial em nossa sede em frente ao Supermercado BH no bairro Carneirinhos, ou solicite uma consultoria digital com total comodidade e segurança."
+                description="Agende seu atendimento presencial em nossa sede na R. Fernão Dias, 303 no bairro Carneirinhos, ou solicite uma consulta inicial com total comodidade e segurança."
               >
                 Estamos prontos para{" "}
-                <span className="font-display italic text-[#977128]">defender sua causa.</span>
+                <span className="font-display italic text-[#987226]">defender sua causa.</span>
               </Heading>
 
               <div className="mt-9 flex flex-col items-start gap-4">
@@ -1477,59 +1354,59 @@ export default function Home() {
                 >
                   <WhatsAppIcon size={17} /> Iniciar conversa no WhatsApp
                 </GlowingButton>
-                <p className="text-xs text-[#4b5a4d] font-medium">
+                <p className="text-xs text-[#3a4b5e] font-medium">
                   Atendimento direto e retorno com agilidade:{" "}
-                  <strong className="text-[#0a130c]">{PHONE_DISPLAY}</strong>.
+                  <strong className="text-[#021426]">{PHONE_DISPLAY}</strong>.
                 </p>
               </div>
 
-              <div className="mt-10 space-y-4 text-xs text-[#4b5a4d] font-medium">
+              <div className="mt-10 space-y-4 text-xs text-[#3a4b5e] font-medium">
                 <div className="flex items-center gap-3">
-                  <Clock size={16} className="text-[#977128]" />
+                  <Clock size={16} className="text-[#987226]" />
                   <span>Segunda a Sexta: 08h30 às 18h00</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone size={16} className="text-[#977128]" />
+                  <Phone size={16} className="text-[#987226]" />
                   <a
                     href={`tel:+${WHATSAPP_NUMBER}`}
-                    className="hover:text-[#977128] transition-colors text-[#0a130c] font-semibold"
+                    className="hover:text-[#987226] transition-colors text-[#021426] font-semibold"
                   >
                     {PHONE_DISPLAY}
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Mail size={16} className="text-[#977128]" />
+                  <Mail size={16} className="text-[#987226]" />
                   <a
                     href={`mailto:${EMAIL_CONTACT}`}
-                    className="hover:text-[#977128] transition-colors text-[#0a130c] font-semibold"
+                    className="hover:text-[#987226] transition-colors text-[#021426] font-semibold"
                   >
                     {EMAIL_CONTACT}
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <InstagramIcon size={16} className="text-[#977128]" />
+                  <FacebookIcon size={16} className="text-[#987226]" />
                   <a
-                    href={INSTAGRAM_URL}
+                    href={FACEBOOK_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#977128] transition-colors text-[#0a130c] font-semibold"
+                    className="hover:text-[#987226] transition-colors text-[#021426] font-semibold"
                   >
-                    @julianacota.adv
+                    facebook.com/adv.luciano.igor.brandao
                   </a>
                 </div>
               </div>
             </div>
 
             {/* Address & Office Card */}
-            <div className="relative overflow-hidden rounded-2xl border border-[#cda34f]/35 bg-[#0a110b] text-white p-7 sm:p-10 shadow-2xl">
-              <div className="absolute right-0 top-0 h-1.5 w-32 bg-gradient-to-r from-[#cda34f] to-[#eed083]" />
+            <div className="relative overflow-hidden rounded-2xl border border-[#d4af37]/35 bg-[#021426] text-white p-7 sm:p-10 shadow-2xl">
+              <div className="absolute right-0 top-0 h-1.5 w-32 bg-gradient-to-r from-[#d4af37] to-[#fce778]" />
 
               <div className="flex items-center gap-4">
-                <span className="grid size-12 place-items-center rounded-xl bg-[#cda34f]/20 text-[#fae4a8]">
+                <span className="grid size-12 place-items-center rounded-xl bg-[#d4af37]/20 text-[#fce778]">
                   <MapPin size={22} strokeWidth={1.8} />
                 </span>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#fae4a8]">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#fce778]">
                     Sede do Escritório
                   </p>
                   <p className="mt-1 font-display text-2xl font-bold text-white">
@@ -1540,29 +1417,27 @@ export default function Home() {
 
               <address className="mt-7 max-w-md not-italic text-[14px] leading-relaxed text-slate-300">
                 <strong className="text-white font-bold">
-                  Juliana Cota Consultoria Jurídica & Advocacia
+                  Advogado Luciano Igor Brandão
                 </strong>
                 <br />
-                <span className="text-[#fae4a8] font-semibold">Dra. Juliana Cota</span>
+                <span className="text-[#fce778] font-semibold">{OAB_DISPLAY}</span>
                 <br />
-                Em frente ao Supermercado BH
+                {ADDRESS_STREET}
                 <br />
-                Av. Getúlio Vargas, 5368 - Sl 02/03 - Carneirinhos
-                <br />
-                João Monlevade - MG, CEP 35930-003, Brasil
+                {ADDRESS_CITY}
               </address>
 
               <div className="my-7 h-px bg-white/10" />
 
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <p className="text-xs text-slate-400">
-                  Atendimento presencial em Carneirinhos e consultoria jurídica especializada para todo o Brasil
+                  Atendimento presencial no bairro Carneirinhos e consultoria jurídica para toda a região
                 </p>
                 <a
                   href={GOOGLE_MAPS_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-[#cda34f]/40 bg-[#152217] px-5 py-3 text-[11px] font-bold uppercase tracking-[0.14em] text-[#fae4a8] transition-colors hover:border-[#cda34f] hover:text-white shadow-xs"
+                  className="inline-flex items-center gap-2 rounded-full border border-[#d4af37]/40 bg-[#062547] px-5 py-3 text-[11px] font-bold uppercase tracking-[0.14em] text-[#fce778] transition-colors hover:border-[#d4af37] hover:text-white shadow-xs"
                 >
                   Abrir no Google Maps <ArrowUpRight size={14} />
                 </a>
@@ -1572,23 +1447,23 @@ export default function Home() {
         </section>
 
         {/* Pre-Footer CTA Strip — Rich Metallic Gold Gradient */}
-        <section className="bg-gradient-to-r from-[#977128] via-[#cda34f] to-[#b5832e] px-5 py-14 text-[#0a130c] sm:px-8 sm:py-16 lg:px-12 shadow-inner">
+        <section className="bg-gradient-to-r from-[#987226] via-[#d4af37] to-[#b5892b] px-5 py-14 text-[#010d1a] sm:px-8 sm:py-16 lg:px-12 shadow-inner">
           <div className="mx-auto flex max-w-7xl flex-col justify-between gap-7 sm:flex-row sm:items-center">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0a130c]/80">
-                JULIANA COTA CONSULTORIA JURÍDICA & ADVOCACIA · JOÃO MONLEVADE - MG
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#010d1a]/85 font-black">
+                ADVOGADO LUCIANO IGOR BRANDÃO · {OAB_DISPLAY} · JOÃO MONLEVADE - MG
               </p>
-              <h2 className="mt-3 max-w-2xl font-display text-3xl sm:text-4xl font-bold leading-tight text-[#0a130c]">
-                Pronto para proteger seus direitos e resolver sua situação jurídica com segurança e excelência?
+              <h2 className="mt-3 max-w-2xl font-display text-3xl sm:text-4xl font-bold leading-tight text-[#010d1a]">
+                Pronto para proteger seus direitos e resolver sua situação jurídica com segurança e dedicação?
               </h2>
             </div>
             <a
               href={getWhatsAppUrl(
-                "Olá, Dra. Juliana Cota. Gostaria de agendar um atendimento inicial para avaliar minha situação jurídica."
+                "Olá, Dr. Luciano Igor Brandão. Gostaria de agendar um atendimento inicial para avaliar minha situação jurídica."
               )}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex w-fit shrink-0 items-center gap-3 rounded-full bg-[#0a110b] px-7 py-4 text-[11px] font-bold uppercase tracking-[0.14em] text-white shadow-2xl transition-all hover:-translate-y-0.5 hover:bg-black"
+              className="group inline-flex w-fit shrink-0 items-center gap-3 rounded-full bg-[#010d1a] px-7 py-4 text-[11px] font-bold uppercase tracking-[0.14em] text-white shadow-2xl transition-all hover:-translate-y-0.5 hover:bg-black"
             >
               <WhatsAppIcon size={17} /> Falar no WhatsApp <ArrowUpRight size={15} />
             </a>
@@ -1596,31 +1471,31 @@ export default function Home() {
         </section>
 
         {/* Footer — Deep Dark Section */}
-        <footer className="bg-[#070d08] px-5 py-14 text-white sm:px-8 lg:px-12 border-t border-[#cda34f]/20">
+        <footer className="bg-[#010d1a] px-5 py-14 text-white sm:px-8 lg:px-12 border-t border-[#d4af37]/20">
           <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_1fr]">
             <div>
               <div className="inline-flex">
                 <Image
                   src="/logo.png"
-                  width={1774}
-                  height={887}
-                  alt="Juliana Cota Consultoria Jurídica & Advocacia"
-                  className="h-11 w-auto object-contain sm:h-14"
+                  width={1024}
+                  height={341}
+                  alt="Advogado Luciano Igor Brandão"
+                  className="h-12 w-auto object-contain sm:h-16"
                 />
               </div>
               <p className="mt-5 max-w-xs text-xs leading-relaxed text-slate-400">
-                Advocacia combativa e consultoria jurídica de alto padrão com excelência em
-                Direito do Trabalho, Rescisão Indireta, Consultoria Empresarial, Cível e Família.
-                Sede em frente ao Supermercado BH na Av. Getúlio Vargas, 5368, Carneirinhos, João Monlevade/MG
-                e consultoria digital para clientes em todo o Brasil.
+                Advocacia séria e de alto padrão com excelência em
+                Direito Bancário (revisão de contratos, juros abusivos e fraudes no consignado),
+                Direito Civil, Contratos, Defesa do Consumidor e Família.
+                Sede na {ADDRESS_STREET}, {ADDRESS_CITY}.
               </p>
-              <p className="mt-3 text-xs font-bold text-[#fae4a8]">
-                Avaliação 5,0 ★ no Google (97 avaliações reais)
+              <p className="mt-3 text-xs font-bold text-[#fce778]">
+                Avaliação 5,0 ★ no Google (51 avaliações reais verificadas)
               </p>
             </div>
 
             <div>
-              <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#fae4a8]">
+              <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#fce778]">
                 Navegação
               </h2>
               <div className="mt-4 flex flex-col items-start gap-3 text-xs text-slate-300 font-medium">
@@ -1628,19 +1503,19 @@ export default function Home() {
                   Início
                 </a>
                 <a className="footer-link" href="#sobre">
-                  Sobre Nós & Dra. Juliana
+                  Sobre o Dr. Luciano Igor
                 </a>
                 <a className="footer-link" href="#atuacao">
                   Áreas de Atuação
                 </a>
-                <a className="footer-link" href="#manifesto">
-                  Defesa de Direitos & CLT
+                <a className="footer-link" href="#bancario">
+                  Direito Bancário & Fraudes
                 </a>
                 <a className="footer-link" href="#orientacoes">
                   Orientações Jurídicas
                 </a>
                 <a className="footer-link" href="#avaliacoes">
-                  Avaliações no Google (97)
+                  Avaliações no Google (51)
                 </a>
                 <a className="footer-link" href="#contato">
                   Contato & Sede
@@ -1649,7 +1524,7 @@ export default function Home() {
             </div>
 
             <div>
-              <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#fae4a8]">
+              <h2 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#fce778]">
                 Contato Direto
               </h2>
               <div className="mt-4 flex flex-col items-start gap-3 text-xs text-slate-300 font-medium">
@@ -1668,12 +1543,12 @@ export default function Home() {
                   <Mail size={15} className="shrink-0" /> {EMAIL_CONTACT}
                 </a>
                 <a
-                  href={INSTAGRAM_URL}
+                  href={FACEBOOK_URL}
                   target="_blank"
                   rel="noreferrer"
                   className="footer-link inline-flex items-center gap-2"
                 >
-                  <InstagramIcon size={15} className="shrink-0" /> @julianacota.adv
+                  <FacebookIcon size={15} className="shrink-0" /> facebook.com/adv.luciano.igor.brandao
                 </a>
                 <a
                   href={GOOGLE_MAPS_URL}
@@ -1682,7 +1557,7 @@ export default function Home() {
                   className="footer-link inline-flex items-start gap-2"
                 >
                   <MapPin size={15} className="mt-0.5 shrink-0" />
-                  <span>Av. Getúlio Vargas, 5368 - Sl 02/03, Carneirinhos, João Monlevade - MG</span>
+                  <span>{ADDRESS_STREET}, {ADDRESS_CITY}</span>
                 </a>
               </div>
             </div>
@@ -1690,7 +1565,7 @@ export default function Home() {
 
           <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-[10px] text-slate-500 sm:flex-row sm:items-center sm:justify-between">
             <p>
-              © {new Date().getFullYear()} Juliana Cota Consultoria Jurídica & Advocacia · Dra. Juliana Cota. Todos os direitos reservados.
+              © {new Date().getFullYear()} Advogado Luciano Igor Brandão · {OAB_DISPLAY}. Todos os direitos reservados.
             </p>
             <p>
               Conteúdo meramente informativo, em estrita conformidade com o Código de Ética e Disciplina da OAB.
@@ -1702,7 +1577,7 @@ export default function Home() {
         <AnimatePresence>
           {activeArea && (
             <motion.div
-              className="fixed inset-0 z-50 flex items-end justify-center bg-black/65 p-0 backdrop-blur-sm sm:items-center sm:p-6"
+              className="fixed inset-0 z-50 flex items-end justify-center bg-black/75 p-0 backdrop-blur-sm sm:items-center sm:p-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -1717,13 +1592,13 @@ export default function Home() {
                 exit={{ opacity: 0, y: 16, scale: 0.99 }}
                 transition={{ duration: 0.24 }}
                 onClick={(event) => event.stopPropagation()}
-                className="relative max-h-[90vh] w-full overflow-y-auto rounded-t-2xl border border-[#cda34f]/35 bg-white p-7 shadow-2xl sm:max-w-xl sm:rounded-2xl sm:p-10"
+                className="relative max-h-[90vh] w-full overflow-y-auto rounded-t-2xl border border-[#d4af37]/35 bg-white p-7 shadow-2xl sm:max-w-xl sm:rounded-2xl sm:p-10"
               >
                 <button
                   type="button"
                   aria-label="Fechar detalhes da área"
                   onClick={() => setActiveArea(null)}
-                  className="absolute right-5 top-5 grid size-10 place-items-center rounded-full border border-slate-200 text-slate-700 transition-colors hover:border-[#cda34f] hover:text-[#977128] cursor-pointer"
+                  className="absolute right-5 top-5 grid size-10 place-items-center rounded-full border border-slate-200 text-slate-700 transition-colors hover:border-[#d4af37] hover:text-[#987226] cursor-pointer"
                 >
                   <X size={18} />
                 </button>
@@ -1732,26 +1607,26 @@ export default function Home() {
 
                 <h2
                   id="area-dialog-title"
-                  className="mt-4 max-w-sm pr-10 font-display text-2xl sm:text-3xl font-bold leading-snug text-[#0a130c]"
+                  className="mt-4 max-w-sm pr-10 font-display text-2xl sm:text-3xl font-bold leading-snug text-[#021426]"
                 >
                   {activeArea.title}
                 </h2>
 
-                <p className="mt-5 text-sm leading-relaxed text-[#4b5a4d]">
+                <p className="mt-5 text-sm leading-relaxed text-[#3a4b5e]">
                   {activeArea.details}
                 </p>
 
                 <div className="mt-6 border-t border-slate-200 pt-5">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#0a130c]">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#021426]">
                     Principais demandas e causas atendidas:
                   </p>
                   <ul className="mt-4 space-y-3">
                     {activeArea.topics.map((topic) => (
                       <li
                         key={topic}
-                        className="flex items-center gap-3 text-sm text-[#0a130c]"
+                        className="flex items-center gap-3 text-sm text-[#021426]"
                       >
-                        <span className="size-2 rounded-full bg-[#cda34f] shrink-0" />
+                        <span className="size-2 rounded-full bg-[#d4af37] shrink-0" />
                         <span>{topic}</span>
                       </li>
                     ))}
@@ -1770,7 +1645,7 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={() => setActiveArea(null)}
-                    className="px-5 py-3 text-xs font-bold text-[#4b5a4d] hover:text-[#0a130c] transition-colors cursor-pointer"
+                    className="px-5 py-3 text-xs font-bold text-[#3a4b5e] hover:text-[#021426] transition-colors cursor-pointer"
                   >
                     Fechar
                   </button>

@@ -1,34 +1,23 @@
-# Juliana Cota Consultoria Jurídica & Advocacia · Dra. Juliana Cota
+# Advogado Luciano Igor Brandão — Advocacia & Consultoria Jurídica
 
-Site institucional e comercial de alto padrão da **Dra. Juliana Cota** e equipe da **Juliana Cota Consultoria Jurídica & Advocacia**, com foco especializado em Direito do Trabalho (Rescisão Indireta, Defesa do Trabalhador, Verbas Rescisórias, Horas Extras, Justa Causa), Consultoria Trabalhista & Compliance Empresarial, Direito Civil, Família e Previdenciário. Sede física no bairro Carneirinhos em João Monlevade - MG e atendimento digital em todo o Brasil.
+Landing page institucional e comercial de alto padrão desenvolvida com Next.js 16 (App Router), Tailwind CSS v4, Framer Motion e Lucide Icons para o **Advogado Luciano Igor Brandão** (OAB/MG 212.247), sediado em João Monlevade - MG.
 
-## Informações do Cliente
-- **Nome:** Juliana Cota Consultoria Jurídica & Advocacia / Dra. Juliana Cota
-- **Telefone / WhatsApp:** (31) 97134-7399
-- **E-mail:** contato@julianacota.adv.br
-- **Endereço:** Em frente ao Supermercado BH - Av. Getúlio Vargas, 5368 - Sl 02/03 - Carneirinhos, João Monlevade - MG, CEP 35930-003, Brasil
-- **Instagram:** [@julianacota.adv](https://www.instagram.com/julianacota.adv/)
-- **Avaliações no Google:** 5,0 estrelas (97 avaliações verificadas)
+## Stack Técnica
+- **Framework:** Next.js 16 (App Router)
+- **UI:** React 19, Tailwind CSS v4
+- **Animações:** Framer Motion
+- **Ícones:** Lucide React
+- **Tipografia:** Cinzel + Plus Jakarta Sans (Google Fonts)
 
-## Tecnologias
-- **Next.js 16** (App Router)
-- **React 19**
-- **Tailwind CSS v4**
-- **Framer Motion**
-- **Lucide Icons**
+## Identidade Visual
+- **Primária Escura:** Azul Meia-Noite Imperial / Navy Obsidian (`#010d1a`, `#021426`, `#031b33`, `#062547`) extraído do monograma LB do logotipo.
+- **Dourado Nobre:** Ouro Metálico (`#d4af37`), Luz (`#fce778`), Bronze (`#987226`).
+- **Neutros:** Off-white Alabastro (`#fcfbf8`, `#faf9f5`) e Branco Puro.
 
-## Rodando localmente
-
+## Executando localmente
 ```bash
 npm install
 npm run dev
 ```
 
 Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
-
-## Build de Produção
-
-```bash
-npm run build
-npm run start
-```
