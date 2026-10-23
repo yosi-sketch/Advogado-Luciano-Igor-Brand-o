@@ -417,7 +417,7 @@ export default function Home() {
                 height={341}
                 alt="Advogado Luciano Igor Brandão"
                 priority
-                className="h-12 w-auto object-contain sm:h-16 lg:h-[68px]"
+                className="h-[64.32px] w-auto object-contain sm:h-[85.76px] lg:h-[91.12px]"
               />
             </a>
 
